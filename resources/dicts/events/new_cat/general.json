@@ -28,7 +28,7 @@
         "event_id": "gen_new_cat_adoption_anyroguelitter1",
         "location": ["any"],
         "season": ["any"],
-         "sub_type": ["adoption"],
+        "sub_type": ["adoption"],
         "weight": 5,
         "event_text": "A rogue named n_c:0 leaves {PRONOUN/n_c:0/poss} litter to the Clan. m_c decides to adopt them as {PRONOUN/m_c/poss} own.",
         "m_c": {
@@ -53,7 +53,7 @@
         "event_id": "gen_new_cat_adoption_anywelcomingotherclanlitter1",
         "location": ["any"],
         "season": ["any"],
-         "sub_type": ["adoption"],
+        "sub_type": ["adoption"],
         "weight": 5,
         "event_text": "A o_c_n queen decides to leave their litter with c_n. m_c takes them as {PRONOUN/m_c/poss} own.",
         "m_c": {
@@ -76,7 +76,7 @@
         "event_id": "gen_new_cat_adoption_anymultirepkittypetlitter1",
         "location": ["any"],
         "season": ["any"],
-         "sub_type": ["adoption"],
+        "sub_type": ["adoption"],
         "weight": 5,
         "event_text": "A kittypet named n_c:0 leaves {PRONOUN/n_c:0/poss} litter to the Clan. m_c decides to adopt them as {PRONOUN/m_c/poss} own.",
         "m_c": {
@@ -101,7 +101,7 @@
         "event_id": "gen_new_cat_adoption_anylitter1",
         "location": ["any"],
         "season": ["any"],
-         "sub_type": ["adoption"],
+        "sub_type": ["adoption"],
         "weight": 5,
         "event_text": "m_c finds an abandoned litter, and decides to adopt them as {PRONOUN/m_c/poss} own.",
         "m_c": {
@@ -209,32 +209,32 @@
                 "leader", "deputy", "warrior", "medicine cat", "apprentice", "medicine cat apprentice", "mediator", "mediator apprentice"
             ]
         },"new_cat": [
-            ["age:has_kits", "meeting", "rogue", "can_birth"],
-            [
-                "new_name",
-                "parent:0",
-                "backstory:abandoned2, outsider1",
-                "status:kitten"
-            ]
-        ],
+        ["age:has_kits", "meeting", "rogue", "can_birth"],
+        [
+            "new_name",
+            "parent:0",
+            "backstory:abandoned2, outsider1",
+            "status:kitten"
+        ]
+    ],
         "outsider": {
             "current_rep": ["welcoming"],
             "changed": 1
         }
-    },  
+    },
     {
         "event_id": "gen_new_cat_anypolymate1",
         "location": ["any"],
         "season": ["any"],
         "sub_type":["romance"],
         "weight": 5,
-        "event_text": "m_c and r_c, in the early hours of the day, informed whoever else was awake that they had to handle something and ventured out of camp. Hours later, m_c, r_c, and another cat confidently strode into camp, tails entwined with each other. m_c introduced n_c:0 to the Clan, stating that {PRONOUN/n_c/subject} {VERB/n_c/are/is} staying.",
+        "event_text": "m_c and r_c, in the early hours of the day, informed whoever else was awake that they had to handle something and ventured out of camp. Hours later, m_c, r_c, and another cat confidently strode into camp, tails entwined with each other. m_c introduced n_c:0 to the Clan, stating that {PRONOUN/n_c:0/subject} {VERB/n_c:0/are/is} staying.",
         "m_c": {
             "age": ["young adult", "adult", "senior adult", "senior"],
             "status": ["any"],
             "relationship_status": ["mates"]
-          },
-          "r_c": {
+        },
+        "r_c": {
             "age": ["young adult", "adult", "senior adult", "senior"],
             "status": ["any"]
         },
@@ -247,34 +247,34 @@
             ]
         ],
         "relationships": [
-          {
-            "cats_from": ["m_c"],
-            "cats_to": ["n_c:0"],
-            "mutual": true,
-            "values": ["romantice", "trust"],
-            "amount": 55
-          },
-          {
-            "cats_from": ["m_c"],
-            "cats_to": ["n_c:0"],
-            "mutual": true,
-            "values": ["comfort"],
-            "amount": 25
-          },
-          {
-            "cats_from": ["r_c"],
-            "cats_to": ["n_c:0"],
-            "mutual": true,
-            "values": ["romantice", "trust"],
-            "amount": 55
-          },
-          {
-            "cats_from": ["r_c"],
-            "cats_to": ["n_c:0"],
-            "mutual": true,
-            "values": ["comfort"],
-            "amount": 25
-          }
+            {
+                "cats_from": ["m_c"],
+                "cats_to": ["n_c:0"],
+                "mutual": true,
+                "values": ["romantic", "trust"],
+                "amount": 55
+            },
+            {
+                "cats_from": ["m_c"],
+                "cats_to": ["n_c:0"],
+                "mutual": true,
+                "values": ["comfort"],
+                "amount": 25
+            },
+            {
+                "cats_from": ["r_c"],
+                "cats_to": ["n_c:0"],
+                "mutual": true,
+                "values": ["romantic", "trust"],
+                "amount": 55
+            },
+            {
+                "cats_from": ["r_c"],
+                "cats_to": ["n_c:0"],
+                "mutual": true,
+                "values": ["comfort"],
+                "amount": 25
+            }
         ]
     },
     {
@@ -333,13 +333,13 @@
                 "leader", "deputy", "warrior", "medicine cat"
             ]
         },"new_cat": [
-            [
-                "old_name",
-                "loner",
-                "status:warrior",
-                "exists"
-            ]
-        ],
+        [
+            "old_name",
+            "loner",
+            "status:warrior",
+            "exists"
+        ]
+    ],
         "outsider": {
             "current_rep": ["neutral","welcoming"],
             "changed": 1
@@ -612,10 +612,10 @@
             ]
         ],
         "injury": [
-           {
-            "cats": ["n_c:0"],
-            "injuries": ["battle_injury", "big_bite_injury"]
-           }
+            {
+                "cats": ["n_c:0"],
+                "injuries": ["battle_injury", "big_bite_injury"]
+            }
         ],
         "other_clan": {
             "current_rep": ["any"],
@@ -635,11 +635,11 @@
             ]
         },
         "new_cat": [
-          [
-            "old_name", 
-            "backstory:ostracized_warrior,disgraced1,disgraced2,otherclan", 
-            "status:warrior"
-          ]
+            [
+                "old_name",
+                "backstory:ostracized_warrior,disgraced1,disgraced2,otherclan",
+                "status:warrior"
+            ]
         ],
         "other_clan": {
             "current_rep": ["any"],
@@ -659,11 +659,11 @@
             ]
         },
         "new_cat": [
-          [
-            "old_name", 
-            "backstory:ostracized_warrior,disgraced1,disgraced2,disgraced3,otherclan", 
-            "status:warrior"
-          ]
+            [
+                "old_name",
+                "backstory:ostracized_warrior,disgraced1,disgraced2,disgraced3,otherclan",
+                "status:warrior"
+            ]
         ],
         "other_clan": {
             "current_rep": ["any"],
@@ -683,11 +683,11 @@
             ]
         },
         "new_cat": [
-          [
-            "old_name", 
-            "backstory:medicine_cat", 
-            "status:medicine_cat"
-          ]
+            [
+                "old_name",
+                "backstory:medicine_cat",
+                "status:medicine_cat"
+            ]
         ],
         "other_clan": {
             "current_rep": ["any"],

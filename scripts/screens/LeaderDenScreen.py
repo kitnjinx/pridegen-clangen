@@ -82,8 +82,8 @@ class LeaderDenScreen(Screens):
                     if f"button{i}" not in self.other_clan_selection_elements:
                         continue
                     if (
-                        event.ui_element
-                        == self.other_clan_selection_elements[f"button{i}"]
+                            event.ui_element
+                            == self.other_clan_selection_elements[f"button{i}"]
                     ):
                         self.focus_clan = game.clan.all_clans[i]
                         self.update_other_clan_focus()
@@ -138,12 +138,18 @@ class LeaderDenScreen(Screens):
             object_id="#help_button",
             manager=MANAGER,
             tool_tip_text="This screen allows you to check on the other cats who live nearby, both Outsiders and "
-            "other Clan cats.  You can control how the leader of your Clan will treat other leaders at "
-            "Gatherings, but keep in mind that you can only determine one interaction each moon!  "
-            "Likewise, you can consider whether to drive out or invite in Outsider cats.  If you drive "
-            "out a cat, they will no longer appear in the Cats Outside the Clans list.  If you invite "
-            "in a cat, they might join your Clan!",
+                          "other Clan cats.  You can control how the leader of your Clan will treat other leaders at "
+                          "Gatherings, but keep in mind that you can only determine one interaction each moon!  "
+                          "Likewise, you can consider whether to drive out or invite in Outsider cats.  If you drive "
+                          "out a cat, they will no longer appear in the Cats Outside the Clans list.  If you invite "
+                          "in a cat, they might join your Clan!",
         )
+        # This is here incase the leader comes back
+        self.no_gathering = False
+
+        self.no_leader = False
+        if not game.clan.leader:
+            self.no_leader = True
 
         # LEADER DEN BG AND LEADER SPRITE
         try:
@@ -167,16 +173,19 @@ class LeaderDenScreen(Screens):
                 manager=MANAGER,
             )
 
-        self.screen_elements["lead_image"] = pygame_gui.elements.UIImage(
-            scale(pygame.Rect((460, 460), (300, 300))),
-            pygame.transform.scale(game.clan.leader.sprite, (300, 300)),
-            object_id="#lead_cat_image",
-            starting_height=3,
-            manager=MANAGER,
-        )
+        if not self.no_leader:
+            self.screen_elements["lead_image"] = pygame_gui.elements.UIImage(
+                scale(pygame.Rect((460, 460), (300, 300))),
+                pygame.transform.scale(game.clan.leader.sprite, (300, 300)),
+                object_id="#lead_cat_image",
+                starting_height=3,
+                manager=MANAGER,
+            )
 
         self.helper_cat = None
-        if game.clan.leader.dead or game.clan.leader.exiled:
+        if self.no_leader:
+            self.no_gathering = True
+        elif game.clan.leader.dead or game.clan.leader.exiled:
             self.screen_elements["lead_image"].hide()
             self.no_gathering = True
         elif game.clan.leader.not_working():
@@ -192,25 +201,25 @@ class LeaderDenScreen(Screens):
                         i
                         for i in Cat.all_cats.values()
                         if not i.dead
-                        and not i.exiled
-                        and not i.outside
-                        and not i.not_working()
-                        and i.status in ["mediator", "mediator apprentice"]
+                           and not i.exiled
+                           and not i.outside
+                           and not i.not_working()
+                           and i.status in ["mediator", "mediator apprentice"]
                     ]
                     if mediators:
                         self.helper_cat = mediators[0]
                     else:
                         self.helper_cat = None
             if (
-                not self.helper_cat
+                    not self.helper_cat
             ):  # if no meds or mediators available, literally anyone please anyone help
                 adults = [
                     i
                     for i in Cat.all_cats.values()
                     if not i.dead
-                    and not i.exiled
-                    and not i.outside
-                    and i.status not in ["newborn", "kitten", "apprentice", "leader"]
+                       and not i.exiled
+                       and not i.outside
+                       and i.status not in ["newborn", "kitten", "apprentice", "leader"]
                 ]
                 if adults:
                     self.helper_cat = random.choice(adults)
@@ -235,7 +244,11 @@ class LeaderDenScreen(Screens):
         self.create_outsider_selection_box()
 
         # NOTICE TEXT - leader intention and other clan impressions
-        self.leader_name = game.clan.leader.name
+        if (self.no_leader):
+            self.leader_name = None
+        else:
+            self.leader_name = game.clan.leader.name
+
         self.clan_temper = game.clan.temperament
 
         self.screen_elements["clan_notice_text"] = pygame_gui.elements.UITextBox(
@@ -263,7 +276,7 @@ class LeaderDenScreen(Screens):
                 f" Outsiders do not concern themselves with a dead Clan. "
             )
         # if leader is dead and no one new is leading, give special notice
-        elif game.clan.leader.dead or game.clan.leader.exiled:
+        elif self.no_leader or game.clan.leader.dead or game.clan.leader.exiled:
             self.no_gathering = True
             self.screen_elements["clan_notice_text"].set_text(
                 f" Without no one to lead, the Clan can't focus on what to say at the Gathering. "
@@ -796,7 +809,7 @@ class LeaderDenScreen(Screens):
             "",
             object_id="#outsider_drive",
             tool_tip_text="This cat will be driven out of the area if found (they will no longer be accessible in "
-            "game).",
+                          "game).",
             container=self.focus_outsider_button_container,
             starting_height=3,
             manager=MANAGER,
@@ -814,10 +827,10 @@ class LeaderDenScreen(Screens):
         )
 
         if (
-            self.focus_cat.outside
-            and not self.focus_cat.exiled
-            and self.focus_cat.status
-            not in ["kittypet", "loner", "rogue", "former Clancat"]
+                self.focus_cat.outside
+                and not self.focus_cat.exiled
+                and self.focus_cat.status
+                not in ["kittypet", "loner", "rogue", "former Clancat"]
         ):
             self.focus_button["invite_in"].change_object_id("#outsider_search")
         else:
