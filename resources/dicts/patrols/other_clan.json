@@ -191,7 +191,7 @@
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["SPEAKER,1"],
-				"prey" : ["small"]
+                "prey" : ["small"]
             },
             {
                 "text": "r_c is about to leap for the rabbit before s_c grabs them by the scruff and pulls them back! A moment later, r_c sees the group of o_c_n cats that had just come into view. Good thing s_c stopped them before they could blatantly trespass in full view of the other Clan.",
@@ -205,7 +205,7 @@
                     "sneaky",
                     "responsible"
                 ],
-				"prey":["small"]
+                "prey":["small"]
             }
         ],
         "fail_outcomes": [
@@ -214,7 +214,7 @@
                 "exp": 0,
                 "weight": 20,
                 "other_clan_rep": -1,
-				"prey": ["medium"]
+                "prey": ["medium"]
             },
             {
                 "text": "s_c pounces with no hesitation! {PRONOUN/s_c/subject/CAP} easily {VERB/s_c/kill/kills} the rabbit before glancing up and coming face to face with a o_c_n cat. s_c is promptly chased back over the border and the other cat glares, hissing and spitting, until the patrol leaves the area.",
@@ -2887,7 +2887,7 @@
         "chance_of_success": 30,
         "success_outcomes": [
             {
-                "text": "Once, there was a cat called Scrap. And she was a little bit of nothing, no talents, no courage, no beauty, she thought herself worthless and stupid. Yet when her Clan was threatened by invading rogues, she rose up. Nervous, flighty, scared and small - the savior of her clan, marked with moth wings tucked behind her ear.",
+                "text": "Once, there was a cat called Scrap. And she was a little bit of nothing, no talents, no courage, no beauty, she thought herself worthless and stupid. Yet when her Clan was threatened by invading rogues, she rose up. Nervous, flighty, scared and small - the savior of her Clan, marked with moth wings tucked behind her ear.",
                 "exp": 20,
                 "weight": 20,
                 "other_clan_rep": 2,

@@ -632,7 +632,7 @@
                 "weight": 10,
                 "can_have_stat":["p_l"],
                 "stat_trait": [
-                    "ambitious", 
+                    "ambitious",
                     "vengeful",
                     "troublesome",
                     "bloodthirsty",
@@ -743,31 +743,31 @@
             }
         ],
         "fail_outcomes": [
-            { 
-                "text": "As r_c reflects on clair_list from {PRONOUN/r_c/poss} vision, {PRONOUN/r_c/subject} still {VERB/r_c/find/finds} that {PRONOUN/r_c/subject} can't make sense of it.", 
-                "exp": 0, 
+            {
+                "text": "As r_c reflects on clair_list from {PRONOUN/r_c/poss} vision, {PRONOUN/r_c/subject} still {VERB/r_c/find/finds} that {PRONOUN/r_c/subject} can't make sense of it.",
+                "exp": 0,
                 "weight": 20
             },
-            { 
-                "text": "Despite p_l's attempts, the vision containing glimpses of clair_list remains cryptic and elusive... just like the cobwebs.", 
-                "exp": 0, 
+            {
+                "text": "Despite p_l's attempts, the vision containing glimpses of clair_list remains cryptic and elusive... just like the cobwebs.",
+                "exp": 0,
                 "weight": 20
             },
-            { 
-                "text": "Despite deep contemplation during the cobweb-gathering, p_l struggles to decipher what clair_list could mean. The lack of clarity leaves p_l feeling uncertain, and the potential message from StarClan remains elusive. At least {PRONOUN/p_l/subject}{VERB/p_l/'ve/'s} collected cobwebs.", 
-                "exp": 0, 
+            {
+                "text": "Despite deep contemplation during the cobweb-gathering, p_l struggles to decipher what clair_list could mean. The lack of clarity leaves p_l feeling uncertain, and the potential message from StarClan remains elusive. At least {PRONOUN/p_l/subject}{VERB/p_l/'ve/'s} collected cobwebs.",
+                "exp": 0,
                 "weight": 15,
                 "herbs": ["cobwebs"]
             },
-            { 
-                "text": "p_l decides it was just a dream, ignoring the signs from StarClan as {PRONOUN/p_l/subject} {VERB/p_l/gather/gathers} cobwebs.", 
-                "exp": 0, 
+            {
+                "text": "p_l decides it was just a dream, ignoring the signs from StarClan as {PRONOUN/p_l/subject} {VERB/p_l/gather/gathers} cobwebs.",
+                "exp": 0,
                 "weight": 15,
                 "herbs": ["cobwebs"]
             },
-            { 
-                "text": "s_c dismisses the dream, why would StarClan send someone like {PRONOUN/s_c/object} a vision?", 
-                "exp": 0, 
+            {
+                "text": "s_c dismisses the dream, why would StarClan send someone like {PRONOUN/s_c/object} a vision?",
+                "exp": 0,
                 "weight": 20,
                 "stat_trait":[
                     "lonesome",
@@ -1054,8 +1054,8 @@
                 "exp": 0,
                 "weight": 20,
                 "stat_trait": [
-                    "ambitious", 
-                    "insecure", 
+                    "ambitious",
+                    "insecure",
                     "vengeful"
                 ],
                 "relationships": [
@@ -1081,7 +1081,7 @@
                 "weight": 10,
                 "can_have_stat":["p_l"],
                 "stat_trait": [
-                    "ambitious", 
+                    "ambitious",
                     "vengeful",
                     "troublesome",
                     "bloodthirsty",
@@ -1172,7 +1172,7 @@
                     "lonesome",
                     "nervous",
                     "insecure"
-                ]                
+                ]
             },
             {
                 "text": "s_c greets the StarClan cat with bright eyes and an easy going smile. The two converse for what feels like only minutes, but much to s_c's surprise, the sun is starting to set. s_c hurriedly gathers some tansy before returning to camp.",
@@ -1183,7 +1183,7 @@
                     "childish",
                     "playful",
                     "loving"
-                ]                
+                ]
             }
         ],
         "fail_outcomes": [
@@ -1231,7 +1231,7 @@
                 "text": "r_c hisses at the unknown cat, fur bristling. The ghost vanishes, leaving r_c alone... for now.",
                 "exp": 30,
                 "weight": 20
-            }    
+            }
         ]
     },
     {
@@ -1372,7 +1372,7 @@
                 "exp": 30,
                 "art": "gen_angry_cat_med",
                 "weight": 20
-            }   
+            }
         ]
     },
     {
@@ -1432,13 +1432,13 @@
                 "exp": 30,
                 "art": "gen_angry_cat_app",
                 "weight": 20
-            },            
+            },
             {
                 "text": "app1 hisses at the unknown cat, fur bristling. The ghost vanishes, leaving app1 alone... for now.",
                 "exp": 30,
                 "art": "gen_angry_cat_app",
                 "weight": 20
-            }   
+            }
         ]
     },
     {
@@ -1556,13 +1556,13 @@
                 "exp": 30,
                 "art": "gen_angry_cat_app",
                 "weight": 20
-            },            
+            },
             {
                 "text": "app1 hisses at the unknown cat, fur bristling. The ghost vanishes, leaving app1 alone... for now.",
                 "exp": 30,
                 "art": "gen_angry_cat_app",
                 "weight": 20
-            }   
+            }
         ]
     },
     {
@@ -1861,7 +1861,7 @@
                 "weight": 20
             },
             {
-                "text": "The apprentices get easily distracted without a more experienced cat to keep them on track. They return empty pawed, much to the dissapointment of the clan.",
+                "text": "The apprentices get easily distracted without a more experienced cat to keep them on track. They return empty pawed, much to the dissapointment of the Clan.",
                 "exp": 0,
                 "art": "gen_train_patrolapprenticesessionfail",
                 "weight": 5,
@@ -2287,7 +2287,7 @@
                     }
                 ]
             },
-            
+
             {
                 "text": "p_l sits down and motions for app1 to join {PRONOUN/p_l/object}, looking at {PRONOUN/app1/object} inquisitively. app1 tentatively explains that {PRONOUN/app1/subject}{VERB/app1/'re/'s} curious about where kits come from. p_l sputters, but quickly gathers themself and gently tells app1 that this isn't really the best place to ask, and it might be best to wait until {PRONOUN/app1/subject}{VERB/app1/'re/'s} a bit older. app1 huffs, but relents.",
                 "exp": 20,
@@ -2318,7 +2318,7 @@
                         "amount": 5
                     }
                 ]
-            },            
+            },
             {
                 "text": "p_l sits down and motions for app1 to join {PRONOUN/p_l/object}, looking at {PRONOUN/app1/object} inquisitively. app1 practically bursts with questions, asking all about scars and wounds and how much blood has p_l seen and what was it like? p_l tells {PRONOUN/app1/object}, gently yet firmly, that spilling blood isn't aspirational. app1 doesn't seem to really get it, but {PRONOUN/app1/subject} {VERB/app1/relent/relents} regardless.",
                 "exp": 20,
@@ -2496,7 +2496,7 @@
                     }
                 ]
             },
-            
+
             {
                 "text": "r_c makes a humming sound, and asks p_l if {PRONOUN/p_l/subject} ever {VERB/p_l/ponder/ponders} {PRONOUN/p_l/poss} own mortality. p_l swishes {PRONOUN/p_l/poss} tail, and answers that {PRONOUN/p_l/subject}'d never really thought about it, past knowing {PRONOUN/p_l/subject}'ll go to StarClan when {PRONOUN/p_l/subject} {VERB/p_l/die/dies}. It certainly makes for interesting conversation, and it's all too soon that they pick the herbs and have their mouths too full to continue.",
                 "exp": 20,
@@ -2987,52 +2987,52 @@
         ]
     },
     {
-    	"patrol_id": "gen_med_deathsheadmoth1",
-    	"biome": ["any"],
-    	"season": ["any"],
-    	"types": ["herb_gathering"],
-    	"tags": ["halloween"],
-    	"patrol_art": "deathsheadmoth_INTRO",
-    	"min_cats": 4,
-    	"max_cats": 6,
-    	"min_max_status": {
-        	"normal adult": [1, 5],
-	        "medicine cat": [1, 1]
-    	},
-    	"weight": 40,
-    	"intro_text": "p_l is out alone in c_n's territory when a shiver runs down {PRONOUN/p_l/poss} spine. {PRONOUN/p_l/subject/CAP} {VERB/p_l/stop/stops}. {PRONOUN/p_l/subject/CAP} slowly {VERB/p_l/turn/turns} {PRONOUN/p_l/poss} head. On the rosemary bush next to {PRONOUN/p_l/object}, the moth lazily stretches its wings, the Twoleg skull on its back grinning.",
-    	"decline_text": "It's just a moth, p_l tells {PRONOUN/p_l/self}, and continues on {PRONOUN/p_l/poss} way.",
-    	"chance_of_success": 70,
-    	"pl_skill_constraint": ["OMEN,3"],
-    	"success_outcomes": [
-        	{
-            	"text": "That- that's a Death's Head Moth, and suddenly p_l is running, charging, pelting forward towards the training grounds where r_c and the others said they'd be training today. {PRONOUN/p_l/subject/CAP} {VERB/p_l/skid/skids} forward, bursting into the area, barging into the training group and knocking cats aside - stop the exercise, stop training, STOP EVERYTHING!",
-            	"exp": 50,
-            	"weight": 20,
-            	"relationships": [
-                	{
-                    	"cats_to": ["p_l"],
-                    	"cats_from": ["patrol"],
-                    	"mutual": false,
-                    	"values": ["comfort", "trust", "respect"],
-                    	"amount": 15
-                	}
-            	]
-        	}
-    	],
-    	"fail_outcomes": [
-        	{
-            	"text": "Surely, surely it's nothing - but p_l can't deny {PRONOUN/p_l/poss} instincts. This Death's Head Moth is an omen, and {PRONOUN/p_l/subject} {VERB/p_l/take/takes} off running, sprinting towards the training arena where {PRONOUN/p_l/poss} Clanmates said they'd be. But it's too late. By the time p_l arrives, r_c is choking on {PRONOUN/r_c/poss} last breaths, victim of a terrible accident.",
-            	"exp": 0,
-            	"weight": 20,
+        "patrol_id": "gen_med_deathsheadmoth1",
+        "biome": ["any"],
+        "season": ["any"],
+        "types": ["herb_gathering"],
+        "tags": ["halloween"],
+        "patrol_art": "deathsheadmoth_INTRO",
+        "min_cats": 4,
+        "max_cats": 6,
+        "min_max_status": {
+            "normal adult": [1, 5],
+            "medicine cat": [1, 1]
+        },
+        "weight": 40,
+        "intro_text": "p_l is out alone in c_n's territory when a shiver runs down {PRONOUN/p_l/poss} spine. {PRONOUN/p_l/subject/CAP} {VERB/p_l/stop/stops}. {PRONOUN/p_l/subject/CAP} slowly {VERB/p_l/turn/turns} {PRONOUN/p_l/poss} head. On the rosemary bush next to {PRONOUN/p_l/object}, the moth lazily stretches its wings, the Twoleg skull on its back grinning.",
+        "decline_text": "It's just a moth, p_l tells {PRONOUN/p_l/self}, and continues on {PRONOUN/p_l/poss} way.",
+        "chance_of_success": 70,
+        "pl_skill_constraint": ["OMEN,3"],
+        "success_outcomes": [
+            {
+                "text": "That- that's a Death's Head Moth, and suddenly p_l is running, charging, pelting forward towards the training grounds where r_c and the others said they'd be training today. {PRONOUN/p_l/subject/CAP} {VERB/p_l/skid/skids} forward, bursting into the area, barging into the training group and knocking cats aside - stop the exercise, stop training, STOP EVERYTHING!",
+                "exp": 50,
+                "weight": 20,
+                "relationships": [
+                    {
+                        "cats_to": ["p_l"],
+                        "cats_from": ["patrol"],
+                        "mutual": false,
+                        "values": ["comfort", "trust", "respect"],
+                        "amount": 15
+                    }
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "Surely, surely it's nothing - but p_l can't deny {PRONOUN/p_l/poss} instincts. This Death's Head Moth is an omen, and {PRONOUN/p_l/subject} {VERB/p_l/take/takes} off running, sprinting towards the training arena where {PRONOUN/p_l/poss} Clanmates said they'd be. But it's too late. By the time p_l arrives, r_c is choking on {PRONOUN/r_c/poss} last breaths, victim of a terrible accident.",
+                "exp": 0,
+                "weight": 20,
                 "dead_cats": ["r_c"],
                 "history_text": {
                     "reg_death": "m_c died in a terrible training accident, foretold by a Death's Head Moth.",
                     "lead_death": "died in a terrible training accident, foretold by a Death's Head Moth"
-   		            }
-        	}
-    	]
-	},
+                }
+            }
+        ]
+    },
     {
         "patrol_id": "gen_med_pumpkinpatch1",
         "biome": ["any"],
@@ -3207,9 +3207,9 @@
         "min_cats": 2,
         "max_cats": 6,
         "min_max_status": {
-          "healer cats": [1,6],
-          "normal adult": [0,5],
-          "all apprentices": [0,5]
+            "healer cats": [1,6],
+            "normal adult": [0,5],
+            "all apprentices": [0,5]
         },
         "weight": 20,
         "intro_text": "The patrol stops by at their usual herb patch, only to be greeted by a mysterious black cat that stares them down, unblinking.",
@@ -3247,12 +3247,12 @@
                 "exp": 0,
                 "weight": 20,
                 "injury": [
-                	{
-                    	"cats": ["patrol"],
-                    	"injuries": ["shock", "non_lethal"],
-                    	"scars": []
-                	}
-                  ]
+                    {
+                        "cats": ["patrol"],
+                        "injuries": ["shock", "non_lethal"],
+                        "scars": []
+                    }
+                ]
             }
         ]
     },
@@ -3481,11 +3481,13 @@
             "medicine cat": [1, 1]
         },
         "weight": 20,
-        "intro_text": "While out collecting herbs with r_c, p_l can't help but notice just how hard {PRONOUN/p_l/poss} companion is pushing {PRONOUN/r_c/self}.",        "decline_text": "{PRONOUN/p_l/subject/CAP} {VERB/p_l/decide/decides} to keep {PRONOUN/p_l/poss} thoughts to {PRONOUN/p_l/self}.",
+        "intro_text": "While out collecting herbs with r_c, p_l can't help but notice just how hard {PRONOUN/p_l/poss} companion is pushing {PRONOUN/r_c/self}.",
+        "decline_text": "{PRONOUN/p_l/subject/CAP} {VERB/p_l/decide/decides} to keep {PRONOUN/p_l/poss} thoughts to {PRONOUN/p_l/self}.",
         "chance_of_success": 60,
         "success_outcomes": [
             {
-                "text": "Without a single word, p_l drapes {PRONOUN/p_l/poss} tail over r_c's shoulders, letting out a comforting purr as the other cat leans against {PRONOUN/p_l/object}.                ",exp": 20,
+                "text": "Without a single word, p_l drapes {PRONOUN/p_l/poss} tail over r_c's shoulders, letting out a comforting purr as the other cat leans against {PRONOUN/p_l/object}.",
+                "exp": 20,
                 "weight": 20,
                 "herbs": ["random_herbs"],
                 "relationships": [
