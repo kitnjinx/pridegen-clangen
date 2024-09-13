@@ -310,7 +310,7 @@ class Condition_Events:
 
     @staticmethod
     def handle_injuries(cat, random_cat=None):
-        """
+        """ 
         This function handles injuries overall by randomly injuring cat (or not).
         Returns: boolean - if an event was triggered
         """

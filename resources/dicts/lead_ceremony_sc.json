@@ -457,7 +457,7 @@
         }
       ]
     },
-
+  
     "insecure_warrior": {
       "tags": [],
       "lead_trait": ["insecure"],
@@ -470,7 +470,7 @@
         }
       ]
     },
-
+  
     "lonesome_warrior": {
       "tags": [],
       "lead_trait": ["lonesome"],
@@ -483,7 +483,7 @@
         }
       ]
     },
-
+  
     "loving_warrior": {
       "tags": [],
       "lead_trait": ["loving"],
@@ -504,7 +504,7 @@
         }
       ]
     },
-
+  
     "loving_starclanwarrior": {
       "tags": [],
       "lead_trait": [],
@@ -526,7 +526,7 @@
       ]
     },
 
-    "loyal_warrior": {
+  	"loyal_warrior": {
       "tags": [],
       "lead_trait": ["loyal"],
       "star_trait": [],
@@ -746,7 +746,7 @@
         }
       ]
     },
-
+  
     "vengeful_warrior": {
       "tags": [],
       "lead_trait": ["vengeful"],

@@ -130,7 +130,7 @@ class Sprites:
                 'lineart', 'lineartdf', 'lineartdead',
                 'eyes', 'eyes2', 'skin',
                 'scars', 'missingscars',
-                'medcatherbs',
+                'medcatherbs', 'wild',
                 'collars', 'bellcollars', 'bowcollars', 'nyloncollars',
                 'singlecolours', 'speckledcolours', 'tabbycolours', 'bengalcolours', 'marbledcolours',
                 'rosettecolours', 'smokecolours', 'tickedcolours', 'mackerelcolours', 'classiccolours',
@@ -142,8 +142,6 @@ class Sprites:
             ]:
                 if 'lineart' in x and game.config['fun']['april_fools']:
                     self.spritesheet(f"sprites/{f}/aprilfools{x}.png", x)
-                elif 'symbols' in x:
-                    self.spritesheet(f"sprites/{x}.png", x)
                 else:
                     self.spritesheet(f"sprites/{f}/{x}.png", x)
 
@@ -279,15 +277,17 @@ class Sprites:
                 self.make_group('missingscars', (col, row), f'scars{f}_{missing_part}')
 
         # accessories
+        #to my beloved modders, im very sorry for reordering everything <333 -clay
         medcatherbs_data = [
-            ["MAPLE LEAF", "HOLLY", "BLUE BERRIES", "FORGET ME NOTS", "RYE STALK", "LAUREL"],
-            ["BLUEBELLS", "NETTLE", "POPPY", "LAVENDER", "HERBS", "PETALS"],
-            [],  # Empty row because this is the wild data, except dry herbs.
-            ["OAK LEAVES", "CATMINT", "MAPLE SEED", "JUNIPER"]
+            ["MAPLE LEAF", "HOLLY", "BLUE BERRIES", "FORGET ME NOTS", "RYE STALK", "CATTAIL", "POPPY", "ORANGE POPPY", "CYAN POPPY", "WHITE POPPY", "PINK POPPY"],
+            ["BLUEBELLS", "LILY OF THE VALLEY", "SNAPDRAGON", "HERBS", "PETALS", "NETTLE", "HEATHER", "GORSE", "JUNIPER", "RASPBERRY", "LAVENDER"],
+            ["OAK LEAVES", "CATMINT", "MAPLE SEED", "LAUREL", "BULB WHITE", "BULB YELLOW", "BULB ORANGE", "BULB PINK", "BULB BLUE", "CLOVER", "DAISY"]
         ]
-
+        dryherbs_data = [
+            ["DRY HERBS", "DRY CATMINT", "DRY NETTLES", "DRY LAURELS"]
+        ]
         wild_data = [
-            ["RED FEATHERS", "BLUE FEATHERS", "JAY FEATHERS", "MOTH WINGS", "CICADA WINGS"]
+            ["RED FEATHERS", "BLUE FEATHERS", "JAY FEATHERS", "GULL FEATHERS", "SPARROW FEATHERS", "MOTH WINGS", "ROSY MOTH WINGS", "MORPHO BUTTERFLY", "MONARCH BUTTERFLY", "CICADA WINGS", "BLACK CICADA"]
         ]
 
         collars_data = [
@@ -317,13 +317,16 @@ class Sprites:
         # medcatherbs
         for row, herbs in enumerate(medcatherbs_data):
             for col, herb in enumerate(herbs):
+                self.make_group('medcatherbs', (col, row), f'acc_herbs{herb}')
+        #dryherbs
+        for row, dry in enumerate(dryherbs_data):
+            for col, dryherbs in enumerate(dry):
+                self.make_group('medcatherbs', (col, 3), f'acc_herbs{dryherbs}')     
                 self.make_group('medcatherbs', (col, row), f'acc_herbs{f}_{herb}')
-        self.make_group('medcatherbs', (5, 2), 'acc_herbs{f}_DRY HERBS')
-
         # wild
         for row, wilds in enumerate(wild_data):
             for col, wild in enumerate(wilds):
-                self.make_group('medcatherbs', (col, 2), f'acc_wild{f}_{wild}')
+                self.make_group('wild', (col, 0), f'acc_wild{wild}')
 
         # collars
         for row, collars in enumerate(collars_data):

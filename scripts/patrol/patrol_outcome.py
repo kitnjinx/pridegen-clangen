@@ -252,7 +252,7 @@ class PatrolOutcome:
         return processed_text, " ".join(results), self.get_outcome_art()
 
     def _allowed_stat_cat_specific(
-            self, kitty: Cat, patrol: "Patrol", allowed_specific
+        self, kitty: Cat, patrol: "Patrol", allowed_specific
     ) -> bool:
         """Helper that handled specific stat cat requirements."""
 
@@ -532,7 +532,7 @@ class PatrolOutcome:
                 old_perm_cond = list(_cat.permanent_condition.keys())
 
                 if set(possible_injuries).issubset(
-                        old_injuries + old_illnesses + old_perm_cond
+                    old_injuries + old_illnesses + old_perm_cond
                 ):
                     print(
                         "WARNING: All possible conditions are already on this cat! (poor kitty)"
@@ -542,9 +542,9 @@ class PatrolOutcome:
                 give_injury = choice(possible_injuries)
                 # If the cat already has this injury, reroll it to get something new
                 while (
-                        give_injury in old_injuries
-                        or give_injury in old_illnesses
-                        or give_injury in old_perm_cond
+                    give_injury in old_injuries
+                    or give_injury in old_illnesses
+                    or give_injury in old_perm_cond
                 ):
                     give_injury = choice(possible_injuries)
 

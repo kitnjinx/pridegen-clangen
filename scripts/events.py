@@ -181,9 +181,9 @@ class Events:
 
             if len(Cat.dead_cats) > 1:
                 event = f"The past moon, {insert} have taken their place in StarClan. {game.clan.name}Clan mourns their " \
-                    f"loss, and their Clanmates will miss where they had been in their lives. Moments of their " \
-                    f"lives are shared in stories around the circle of mourners as those that were closest to them " \
-                    f"take them to their final resting place."
+                        f"loss, and their Clanmates will miss where they had been in their lives. Moments of their " \
+                        f"lives are shared in stories around the circle of mourners as those that were closest to them " \
+                        f"take them to their final resting place."
 
                 if len(ghost_names) > 2:
                     alive_cats = list(

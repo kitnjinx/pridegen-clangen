@@ -63,12 +63,12 @@ class HandleShortEvents:
         self.additional_event_text = ""
 
     def handle_event(
-            self,
-            event_type: str,
-            main_cat: Cat,
-            random_cat: Cat,
-            freshkill_pile: FreshkillPile,
-            sub_type: list = None,
+        self,
+        event_type: str,
+        main_cat: Cat,
+        random_cat: Cat,
+        freshkill_pile: FreshkillPile,
+        sub_type: list = None,
     ):
         """
         This function handles the generation and execution of the event
@@ -141,8 +141,8 @@ class HandleShortEvents:
             found = False
             for _event in final_events:
                 if (
-                        _event.event_id
-                        == game.config["event_generation"]["debug_ensure_event_id"]
+                    _event.event_id
+                    == game.config["event_generation"]["debug_ensure_event_id"]
                 ):
                     final_events = [_event]
                     print(
@@ -296,7 +296,7 @@ class HandleShortEvents:
                 self.text + " " + self.additional_event_text,
                 self.types,
                 self.involved_cats,
-                )
+            )
         )
 
     def handle_new_cats(self):
@@ -340,13 +340,13 @@ class HandleShortEvents:
                 # Search for parent
                 for sub_sub in self.new_cats:
                     if (
-                            sub_sub[0] != sub[0]
-                            and (
+                        sub_sub[0] != sub[0]
+                        and (
                             sub_sub[0].gender == "female"
                             or game.clan.clan_settings["same sex birth"]
-                    )
-                            and sub_sub[0].ID in (sub[0].parent1, sub[0].parent2)
-                            and not (sub_sub[0].dead or sub_sub[0].outside)
+                        )
+                        and sub_sub[0].ID in (sub[0].parent1, sub[0].parent2)
+                        and not (sub_sub[0].dead or sub_sub[0].outside)
                     ):
                         sub_sub[0].get_injured("recovering from birth")
                         break  # Break - only one parent ever gives birth
@@ -375,8 +375,8 @@ class HandleShortEvents:
 
         if hasattr(self.main_cat.pelt, "scars"):
             if (
-                    "NOTAIL" in self.main_cat.pelt.scars
-                    or "HALFTAIL" in self.main_cat.pelt.scars
+                "NOTAIL" in self.main_cat.pelt.scars
+                or "HALFTAIL" in self.main_cat.pelt.scars
             ):
                 for acc in pelts.tail_accessories:
                     if acc in acc_list:
@@ -443,14 +443,14 @@ class HandleShortEvents:
         requirements = self.chosen_event.m_c
         for kitty in alive_cats:
             if (
-                    kitty.status not in requirements["status"]
-                    and "any" not in requirements["status"]
+                kitty.status not in requirements["status"]
+                and "any" not in requirements["status"]
             ):
                 alive_cats.remove(kitty)
                 continue
             if (
-                    kitty.age not in requirements["age"]
-                    and "any" not in requirements["age"]
+                kitty.age not in requirements["age"]
+                and "any" not in requirements["age"]
             ):
                 alive_cats.remove(kitty)
         alive_count = len(alive_cats)
@@ -476,13 +476,17 @@ class HandleShortEvents:
                     self.main_cat
                 )  # got to include the cat that rolled for death in the first place
 
+            taken_cats = []
             for kitty in self.dead_cats:
                 if "lost" in self.chosen_event.tags:
                     kitty.gone()
-                    self.dead_cats.remove(kitty)
+                    taken_cats.append(kitty)
                 self.multi_cat.append(kitty)
                 if kitty.ID not in self.involved_cats:
                     self.involved_cats.append(kitty.ID)
+            for kitty in taken_cats:
+                self.dead_cats.remove(kitty)
+
         else:
             return
 
@@ -790,13 +794,13 @@ class HandleShortEvents:
                     if "low" in trigger and herbs[herb] < needed_amount / 2:
                         possible_herbs.append(herb)
                     if (
-                            "adequate" in trigger
-                            and needed_amount / 2 < herbs[herb] < needed_amount
+                        "adequate" in trigger
+                        and needed_amount / 2 < herbs[herb] < needed_amount
                     ):
                         possible_herbs.append(herb)
                     if (
-                            "full" in trigger
-                            and needed_amount < herbs[herb] < needed_amount * 2
+                        "full" in trigger
+                        and needed_amount < herbs[herb] < needed_amount * 2
                     ):
                         possible_herbs.append(herb)
                     if "excess" in trigger and needed_amount * 2 < herbs[herb]:

@@ -109,6 +109,7 @@
             "Tries to mimic {PRONOUN/m_c/poss} mentor, much to r_c's obvious endearment",
             "Wonders if r_c is proud of {PRONOUN/m_c/object}",
             "Is asking r_c to show {PRONOUN/m_c/object} how to do something again"
+
         ],
         "relationship_constraint": [
             "app/mentor"

@@ -1068,6 +1068,428 @@
     }
   },
   {
+        "event_id": "gen_misc_any_kitkit1",
+        "location": ["any"],
+        "season": ["any"],
+        "weight": 20,
+        "event_text": "m_c and r_c try to sneak out of camp, but are caught and returned to the nursery.",
+        "m_c": {
+          "status": ["kitten"]
+        },
+        "r_c": {
+          "status": ["kitten"]
+        },
+        "relationships": [
+          {
+            "cats_from": ["m_c"],
+            "cats_to": ["r_c"],
+            "mutual": true,
+            "values": ["platonic"],
+            "amount": 10
+          }
+        ]
+    },
+    {
+        "event_id": "gen_misc_multi_kitkit1",
+        "location": ["any"],
+        "season": ["newleaf", "greenleaf"],
+        "weight": 15,
+        "event_text": "m_c and r_c sneak out of camp to chase butterflies.",
+        "m_c": {
+          "status": ["kitten"]
+        },
+        "r_c": {
+          "status": ["kitten"]
+        },
+        "relationships": [
+          {
+            "cats_to": ["m_c"],
+            "cats_from": ["r_c"],
+            "mutual": true,
+            "values": ["platonic", "trust", "comfort"],
+            "amount": 10
+          }
+        ]
+    },
+    {
+        "event_id": "gen_misc_greenleaf_kitkit1",
+        "location": ["any"],
+        "season": ["greenleaf"],
+      "tags": ["clan:warrior"],
+        "weight": 20,
+        "event_text": "m_c and r_c chase fireflies around the camp, while the older warriors try to sleep.",
+        "m_c": {
+            "status": ["kitten"]
+        },
+        "r_c": {
+          "status": ["kitten"]
+        },
+        "relationships": [
+          {
+            "cats_from": ["m_c"],
+            "cats_to": ["r_c"],
+            "mutual": true,
+            "values": ["platonic", "trust", "comfort"],
+            "amount": 10
+          }
+        ]
+    },
+    {
+        "event_id": "gen_misc_leaffall_kitkit1",
+        "location": ["any"],
+        "season": ["leaf-fall"],
+      "tags": ["clan:warrior"],
+        "weight": 20,
+        "event_text": "m_c and r_c lead a small leaf-gathering hunt, which the adult cats watch with amused purrs.",
+        "m_c": {
+            "status": ["kitten"]
+        },
+        "r_c": {
+          "status": ["kitten"]
+        },
+        "relationships": [
+          {
+            "cats_to": ["m_c"],
+            "cats_from": ["r_c"],
+            "mutual": true,
+            "values": ["platonic", "comfort", "trust"],
+            "amount": 10
+          }
+        ]
+    },
+    {
+        "event_id": "gen_misc_leaffall_kitkit2",
+        "location": ["any"],
+        "season": ["leaf-fall"],
+        "weight": 20,
+        "event_text": "m_c and r_c play with the leaves around the camp.",
+        "m_c": {
+            "status": ["kitten"]
+        },
+        "r_c": {
+          "status": ["kitten"]
+        },
+        "relationships": [
+          {
+            "cats_to": ["m_c"],
+            "cats_from": ["r_c"],
+            "mutual": true,
+            "values": ["platonic", "trust", "comfort"],
+            "amount": 10
+          }
+        ]
+    },
+    {
+        "event_id": "gen_misc_leafbare_kitkit1",
+        "location": ["any"],
+        "season": ["leaf-bare"],
+        "weight": 20,
+        "event_text": "m_c and r_c make little snow lumps at the entrance to the camp.",
+        "m_c": {
+            "status": ["kitten"]
+        },
+        "r_c": {
+          "status": ["kitten"]
+        },
+        "relationships": [
+          {
+            "cats_to": ["m_c"],
+            "cats_from": ["r_c"],
+            "mutual": true,
+            "values": ["platonic", "trust", "comfort"],
+            "amount": 10
+          }
+        ]
+      },
+    {
+        "event_id": "gen_misc_leafbare_kitkit2",
+        "location": ["any"],
+        "season": ["leaf-bare"],
+      "tags": ["clan:warrior"],
+        "weight": 20,
+        "event_text": "m_c and r_c flick snow at the older warriors, giggling as they hide behind the nursery.",
+        "m_c": {
+            "status": ["kitten"]
+        },
+        "r_c": {
+          "status": ["kitten"]
+        },
+        "relationships": [
+          {
+            "cats_to": ["m_c"],
+            "cats_from": ["r_c"],
+            "mutual": true,
+            "values": ["platonic", "trust", "comfort"],
+            "amount": 10
+          }
+        ]
+    },
+    {
+        "event_id": "gen_misc_war_any_kitparent1",
+        "location": ["any"],
+        "season": ["any"],
+        "sub_type": ["war"],
+        "weight": 10,
+        "event_text": "m_c is being comforted by r_c after having nightmares about the big, bad o_c_n cats.",
+        "m_c": {
+            "status": ["kitten"],
+            "relationship_status": ["child/parent"]
+        },
+        "r_c":{
+          "status": ["any"]
+        },
+        "relationships": [
+          {
+            "cats_from": ["m_c"],
+            "cats_to": ["r_c"],
+            "mutual": false,
+            "values": ["comfort"],
+            "amount": 20
+          }
+        ],
+      "other_clan": {
+        "current_rep": ["hostile"],
+        "changed": 0
+      }
+    },
+    {
+        "event_id": "gen_misc_any_accessorykit1",
+        "location": ["any"],
+        "season": ["any"],
+        "sub_type": ["accessory"],
+        "weight": 15,
+        "event_text": "m_c was playing with acc_plural earlier, and decides to wear some of them.",
+        "new_accessory": ["RED FEATHERS", "BLUE FEATHERS", "JAY FEATHERS", "GULL FEATHERS", "SPARROW FEATHERS"],
+        "m_c": {
+          "status": ["kitten"]
+        }
+    },
+    {
+        "event_id": "gen_misc_any_accessorykit2",
+        "location": ["any"],
+        "season": ["any"],
+        "sub_type": ["accessory"],
+        "weight": 15,
+        "event_text": "m_c snuck out of camp, and brought back with {PRONOUN/m_c/object} some acc_singular from when {PRONOUN/m_c/poss} fur got snagged in a bush.",
+        "new_accessory": ["HOLLY", "JUNIPER", "RASPBERRY"],
+        "m_c": {
+            "status": ["kitten"]
+        }
+    },
+    {
+        "event_id": "gen_misc_multi_accessorykit1",
+        "location": ["any"],
+        "season": ["newleaf", "greenleaf"],
+        "sub_type": ["accessory"],
+        "weight": 15,
+        "event_text": "m_c caught an insect while sneaking outside of the camp and proudly wears its wings as a trophy of {PRONOUN/m_c/poss} journey.",
+        "new_accessory": ["MOTH WINGS", "ROSY MOTH WINGS", "MORPHO BUTTERFLY", "MONARCH BUTTERFLY", "CICADA WINGS", "BLACK CICADA"],
+        "m_c": {
+          "status": ["kitten"]
+        }
+    },
+    {
+      "event_id": "gen_misc_newleaf_accessorykit1",
+      "location": ["any"],
+      "season": ["newleaf"],
+      "sub_type": ["accessory"],
+      "weight": 15,
+      "event_text": "As the wind blows many petals in the camp, m_c picks a few to decorate {PRONOUN/m_c/self}.",
+      "new_accessory": ["PETALS"],
+      "m_c": {
+        "status": ["kitten"]
+      }
+    },
+    {
+        "event_id": "gen_misc_leaffall_accessorykit1",
+        "location": ["any"],
+        "season": ["leaf-fall"],
+        "sub_type": ["accessory"],
+        "weight": 15,
+        "event_text": "As the wind brings many fallen leaves in the camp, m_c picks a acc_singular to decorate {PRONOUN/m_c/poss} pelt.",
+        "new_accessory": ["OAK LEAVES", "MAPLE LEAF"],
+        "m_c": {
+            "status": ["kitten"]
+        }
+    },
+    {
+        "event_id": "gen_misc_any_traitaccessorykit1",
+        "location": ["any"],
+        "season": ["any"],
+        "sub_type": ["accessory"],
+        "weight": 15,
+        "event_text": "m_c is just too cute - r_c gives {PRONOUN/m_c/object} a pretty acc_singular as a gift.",
+        "new_accessory": ["WILD", "PLANT"],
+        "m_c": {
+          "age": ["kitten"],
+          "trait": ["sweet", "polite"]
+        },
+        "r_c":{
+          "age":["any"]
+        },
+        "relationships": [
+          {
+            "cats_to": ["m_c"],
+            "cats_from": ["r_c"],
+            "mutual": true,
+            "values": ["platonic", "comfort", "trust", "respect"],
+            "amount": 10
+          }
+        ]
+    },
+    {
+        "event_id": "gen_misc_any_accessorykitkit1",
+        "location": ["any"],
+        "season": ["any"],
+        "sub_type": ["accessory"],
+        "weight": 15,
+        "event_text": "r_c gives m_c a pretty acc_singular {PRONOUN/r_c/subject} found while playing.",
+        "new_accessory": ["WILD", "PLANT"],
+        "m_c": {
+            "age": ["kitten"]
+        },
+          "r_c": {
+            "age":["kitten"]
+          },
+        "relationships": [
+          {
+            "cats_to": ["m_c"],
+            "cats_from": ["r_c"],
+            "mutual": true,
+            "values": ["platonic", "comfort", "trust"],
+            "amount": 10
+          },
+          {
+            "cats_to": ["m_c"],
+            "cats_from": ["r_c"],
+            "mutual": true,
+            "values": ["dislike"],
+            "amount": -10
+          }
+        ]
+    },
+    {
+        "event_id": "gen_misc_any_accessorykitkit2",
+        "location": ["any"],
+        "season": ["any"],
+        "sub_type": ["accessory"],
+        "weight": 20,
+        "event_text": "m_c starts bringing a pretty acc_singular everywhere {PRONOUN/m_c/subject} {VERB/m_c/go/goes}, and r_c loudly complains that {PRONOUN/r_c/subject} {VERB/r_c/want/wants} one, too.",
+        "new_accessory": ["WILD", "PLANT"],
+        "m_c": {
+            "age": ["kitten"]
+        },
+        "r_c": {
+          "age":["kitten"],
+          "trait": ["bullying", "impulsive", "attention-seeker"]
+        },
+        "relationships": [
+          {
+            "cats_to": ["m_c"],
+            "cats_from": ["r_c"],
+            "mutual": true,
+            "values": ["dislike", "jealousy"],
+            "amount": 10
+          },
+          {
+           "cats_to": ["m_c"],
+            "cats_from": ["r_c"],
+            "mutual": true,
+            "values": [ "platonic", "comfort"],
+            "amount": -5
+          }
+        ]
+    },
+    {
+        "event_id": "gen_misc_any_accessorykitparent1",
+        "location": ["any"],
+        "season": ["any"],
+        "sub_type": ["accessory"],
+        "weight": 10,
+        "event_text": "No matter how hard r_c tries, there's always something stuck in m_c's fur.",
+        "new_accessory": ["HERBS", "PETALS", "DRY HERBS", "DRY CATMINT", "DRY NETTLES", "DRY LAURELS"],
+        "m_c": {
+          "age": ["kitten"],
+          "relationship_status": ["child/parent"]
+        },
+        "r_c":{
+          "age":["any"],
+          "status": ["any"]
+        }
+    },
+    {
+        "event_id": "gen_misc_any_accessorykitparent2",
+        "location": ["any"],
+        "season": ["any"],
+        "sub_type": ["accessory"],
+        "weight": 15,
+        "event_text": "m_c finds some acc_singular to wear in {PRONOUN/m_c/poss} fur to impress r_c!",
+        "new_accessory": ["WILD", "PLANT"],
+        "m_c": {
+            "age": ["kitten"],
+            "relationship_status": ["child/parent"],
+            "trait": ["attention-seeker", "charming"]
+        },
+        "r_c":{
+          "age":["any"],
+          "status": ["any"]
+        }
+    },
+    {
+        "event_id": "gen_misc_any_kitapprentice1",
+        "location": ["any"],
+        "season": ["any"],
+        "weight": 15,
+        "event_text": "m_c is scolded after sneaking out of camp.",
+        "m_c": {
+            "age": ["kitten", "adolescent"]
+        }
+    },
+    {
+        "event_id": "gen_misc_any_adultsavingkitapprentice1",
+        "location": ["any"],
+        "season": ["any"],
+        "weight": 15,
+        "event_text": "m_c falls into a river, but is saved by r_c.",
+        "m_c": {
+            "age": ["kitten", "adolescent"]
+        },
+        "r_c": {
+          "age": ["young adult", "adult", "senior adult", "senior"]
+        },
+        "relationships": [
+          {
+            "cats_to": ["m_c"],
+            "cats_from": ["r_c"],
+            "mutual": false,
+            "values": ["platonic", "comfort", "respect", "trust"],
+            "amount": 15
+          }
+        ]
+    },
+    {
+      "event_id": "gen_misc_any_apprentice1",
+      "location": ["any"],
+      "season": ["any"],
+      "weight": 20,
+      "event_text": "m_c sneaks out of camp with r_c.",
+      "m_c": {
+          "age": ["adolescent"]
+      },
+      "r_c": {
+        "age": ["adolescent"]
+      },
+      "relationships": [
+          {
+              "cats_to": ["m_c"],
+              "cats_from": ["r_c"],
+              "mutual": true,
+              "values": ["trust", "platonic"],
+              "amount": 10
+          }
+      ],
+    },
+  {
     "event_id": "gen_misc_any_kitkit1",
     "location": ["any"],
     "season": ["any"],
@@ -3672,13 +4094,13 @@
       "age": ["young adult", "adult", "senior adult"]
     },
     "relationships": [
-      {
-        "cats_to": ["m_c"],
-        "cats_from": ["r_c"],
-        "mutual": true,
-        "values": ["romantic", "comfort", "trust"],
-        "amount": 10
-      }
+        {
+          "cats_to": ["m_c"],
+            "cats_from": ["r_c"],
+            "mutual": true,
+            "values": ["romantic", "comfort", "trust"],
+          "amount": 10
+        }
     ]
   },
   {
@@ -3697,13 +4119,13 @@
       "trait": ["bloodthristy"]
     },
     "relationships": [
-      {
-        "cats_to": ["m_c"],
-        "cats_from": ["r_c"],
-        "mutual": true,
-        "values": ["dislike"],
-        "amount": 20
-      }
+        {
+          "cats_to": ["m_c"],
+            "cats_from": ["r_c"],
+            "mutual": true,
+            "values": ["dislike"],
+          "amount": 20
+        }
     ]
   },
   {
