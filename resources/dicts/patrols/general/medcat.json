@@ -310,7 +310,7 @@
                 "herbs": ["random_herbs"]
             },
             {
-                "text": "The sunlight feels great, however r_c presses on, wanting to be able to take care of {PRONOUN/r_c/poss} clanmates.",
+                "text": "The sunlight feels great, however r_c presses on, wanting to be able to take care of {PRONOUN/r_c/poss} Clanmates.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait":[
@@ -350,7 +350,7 @@
                 ]
             },
             {
-                "text": "s_c laid in the patch of sun, huffing, {PRONOUN/s_c/subject} deserved a nice break, away from all {PRONOUN/s_c/poss} clanmates. {PRONOUN/s_c/subject/CAP} could always just say {PRONOUN/s_c/subject} failed to find any herbs after all.",
+                "text": "s_c laid in the patch of sun, huffing. {PRONOUN/s_c/subject/CAP} deserved a nice break, away from all {PRONOUN/s_c/poss} Clanmates. {PRONOUN/s_c/subject/CAP} could always just say {PRONOUN/s_c/subject} failed to find any herbs after all.",
                 "exp": 0,
                 "weight": 20,
                 "stat_trait":[
@@ -563,7 +563,7 @@
                 ]
             },
             {
-                "text": "p_l eyes go wide, fur puffing up, and tell r_c that {PRONOUN/r_c/poss} dream is a warning of death and destruction, thoroughly freaking r_c out and bringing unease to the patrol.",
+                "text": "p_l's eyes go wide, fur puffing up, and tells r_c that {PRONOUN/r_c/poss} dream is a warning of death and destruction, thoroughly freaking r_c out and bringing unease to the patrol.",
                 "exp": 0,
                 "weight": 20,
                 "art": "gen_train_argueMM",
@@ -704,7 +704,7 @@
                 "weight": 20
             },
             {
-                "text": "Somehow cobweb-gathering brings p_l to an almost-meditative state. Not only {VERB/p_l/are/is} {PRONOUN/p_l/subject} fairly confident of {PRONOUN/p_l/poss} next steps, having been given this vision, but {PRONOUN/p_l/subject} also {VERB/p_l/bring/brings} back a good haul to the medicine den stocks.",
+                "text": "Somehow cobweb-gathering brings p_l to an almost-meditative state. Not only {VERB/p_l/are/is} {PRONOUN/p_l/subject} fairly confident of {PRONOUN/p_l/poss} next steps, having been given this vision, but {PRONOUN/p_l/subject} also {VERB/p_l/bring/brings} back a good haul to the medicine cat den stocks.",
                 "exp": 20,
                 "weight": 5,
                 "herbs": ["cobwebs"]
@@ -1024,7 +1024,7 @@
                 ]
             },
             {
-                "text": "p_l eyes go wide, fur puffing up, and tells the apprentice that {PRONOUN/app1/poss}'s dream is a warning of death and destruction, thoroughly freaking app1 out.",
+                "text": "p_l's eyes go wide, fur puffing up, and tells the apprentice that {PRONOUN/app1/poss}'s dream is a warning of death and destruction, thoroughly freaking app1 out.",
                 "exp": 0,
                 "weight": 20,
                 "art": "gen_train_argueMA",
@@ -1893,7 +1893,7 @@
         },
         "weight": 5,
         "intro_text": "p_l eyes the warrior chosen to escort {PRONOUN/p_l/object} to fetch herbs, feeling a little bit giddy. Apprentices getting to boss around warriors is something that almost never happens, and p_l is going to make sure {PRONOUN/p_l/subject} {VERB/p_l/make/makes} the most of it.",
-        "decline_text": "Just as they're about to leave, r_c is called off to help on a hunting patrol instead. p_l lashes {PRONOUN/p_l/poss} tail in frustration, but doesn't protest, and heads back to the medicine cat's den alone.",
+        "decline_text": "Just as they're about to leave, r_c is called off to help on a hunting patrol instead. p_l lashes {PRONOUN/p_l/poss} tail in frustration, but doesn't protest, and heads back to the medicine cat den alone.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
@@ -3306,7 +3306,7 @@
                 ]
             },
             {
-                "text": "The patrol continues on as normal, but when p_l returns to the medicine den later that day, {PRONOUN/p_l/subject} {VERB/p_l/find/finds} something special waiting for {PRONOUN/p_l/object} in {PRONOUN/p_l/poss} nest.",
+                "text": "The patrol continues on as normal, but when p_l returns to the medicine cat den later that day, {PRONOUN/p_l/subject} {VERB/p_l/find/finds} something special waiting for {PRONOUN/p_l/object} in {PRONOUN/p_l/poss} nest.",
                 "exp": 20,
                 "weight": 20,
                 "stat_skill": ["HUNTER,1", "SENSE,2"],
@@ -3410,7 +3410,7 @@
                 ]
             },
             {
-                "text": "The patrol continues on as normal, but when p_l returns to the medicine den later that day, {PRONOUN/p_l/subject} {VERB/p_l/find/finds} something special waiting for {PRONOUN/p_l/object} in {PRONOUN/p_l/poss} nest.",
+                "text": "The patrol continues on as normal, but when p_l returns to the medicine cat den later that day, {PRONOUN/p_l/subject} {VERB/p_l/find/finds} something special waiting for {PRONOUN/p_l/object} in {PRONOUN/p_l/poss} nest.",
                 "exp": 20,
                 "weight": 20,
                 "stat_skill": ["HUNTER,1", "SENSE,2"],
@@ -3591,7 +3591,7 @@
         "chance_of_success": 60,
         "success_outcomes": [
             {
-                "text": "Smiling softly, s_c reasures app1 that {PRONOUN/s_c/subject} didn't feel ready to be a medicine cat, either, when {PRONOUN/s_c/subject} {VERB/s_c/were/was} an apprentice. s_c tells app1 a story from {PRONOUN/s_c/poss} own apprenticeship, when {PRONOUN/s_c/subject} accidentally swapped all the thyme for yarrow. Great StarClan was {PRONOUN/s_c/poss} mentor unhappy when all their patients started throwing up! Before long, app1 is laughing at s_c's own mishaps, {PRONOUN/app1/poss} own troubles forgotten.",
+                "text": "Smiling softly, s_c reassures app1 that {PRONOUN/s_c/subject} didn't feel ready to be a medicine cat, either, when {PRONOUN/s_c/subject} {VERB/s_c/were/was} an apprentice. s_c tells app1 a story from {PRONOUN/s_c/poss} own apprenticeship, when {PRONOUN/s_c/subject} accidentally swapped all the thyme for yarrow. Great StarClan was {PRONOUN/s_c/poss} mentor unhappy when all their patients started throwing up! Before long, app1 is laughing at s_c's own mishaps, {PRONOUN/app1/poss} own troubles forgotten.",
                 "exp": 20,
                 "weight": 20,
 		"stat_trait": ["childish", "bold", "oblivious", "playful", "shameless", "troublesome", "adventurous", "rebellious"],
@@ -3638,6 +3638,29 @@
                     }
                 ]
             },
+			{
+				"text": "p_l reassures app1 that it's completely okay to feel unsure in the path {PRONOUN/app1/subject} chose. Being a medicine cat comes with so many ups and downs, it can be hard not to doubt yourself. Whatever choice app1 makes, p_l will support {PRONOUN/app1/object}. With glistening eyes, app1 huddles against {PRONOUN/app1/poss} mentor, thanking {PRONOUN/p_l/object} profusely for the support.",
+				"exp": 20,
+				"weight": 20,
+				"herbs": ["random_herbs"],
+				"relationships": [
+				{
+					"cats_to": ["patrol"],
+					"cats_from": ["patrol"],
+					"mutual": false,
+					"values": ["platonic",
+					"comfort", "trust"],
+					"amount": 10
+					},
+				{
+					"cats_to": ["patrol"],
+					"cats_from": ["patrol"],
+					"mutual": true,
+					"values": ["dislike", "jealousy"],
+					"amount": -10
+					}
+				]
+			},
             {
                 "text": "Turning to face app1, s_c reminds {PRONOUN/app1/object} that {PRONOUN/app1/subject} {VERB/app1/were/was} chosen by <i>StarClan</i> - their ancestors know that app1 is good enough, so {PRONOUN/app1/subject} should, too. Smiling, app1 nods, raising {PRONOUN/app1/poss} tail with a new-found confidence.",
                 "exp": 20,
@@ -3837,6 +3860,28 @@
                         "amount": 5
                     },
 		    {
+                        "cats_to": ["patrol"],
+                        "cats_from": ["patrol"],
+                        "mutual": false,
+                        "values": ["dislike"],
+                        "amount": -5
+                    }
+                ]
+            },
+			{
+                "text": "Even as {PRONOUN/r_c/poss} kit grows, r_c will always see p_l as a mewling kit, always hungry for milk. r_c gazes fondly at p_l as {PRONOUN/p_l/subject} {VERB/p_l/sniff/sniffs} around, looking for herbs. It's just so wonderful seeing your kit grow up. Of course, it can be sad, but that's why r_c cherishes every moment {PRONOUN/r_c/subject} {VERB/r_c/spend/spends} with p_l.",
+                "exp": 20,
+                "weight": 20,
+                "herbs": ["random_herbs"],
+                "relationships": [
+                    {
+                        "cats_to": ["patrol"],
+                        "cats_from": ["patrol"],
+                        "mutual": false,
+                        "values": ["platonic", "comfort", "trust"],
+                        "amount": 5
+                    },
+					{
                         "cats_to": ["patrol"],
                         "cats_from": ["patrol"],
                         "mutual": false,
