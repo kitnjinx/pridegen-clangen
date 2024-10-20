@@ -144,6 +144,7 @@ class Cat:
         parent1=None,
         parent2=None,
         par2species=None,
+        adoptive_parents=None,
         suffix=None,
         specsuffix_hidden=False,
         ID=None,
@@ -202,8 +203,8 @@ class Cat:
         )
         self.parent1 = parent1
         self.parent2 = parent2
+        self.adoptive_parents = adoptive_parents if adoptive_parents else []
         self.par2species = par2species
-        self.adoptive_parents = []
         self.pelt = pelt if pelt else Pelt()
         self.former_mentor = []
         self.patrol_with_mentor = 0
@@ -529,14 +530,14 @@ class Cat:
             if not par_species:
                 print("[SPS] Warning - par_species none: species randomized")
                 self.species = choices(species_list, weights=weights, k=1)[0]
-            
+
             for s in par_species:
                 # check dom and rec tag
                 if any("dom_inh" in tag for tag in species_dict[s]):
                     if not any("dom_inh" in tag for tag in species_dict[par_species[par_species.index(s)-1]]):
                         par_weights = in_weights[s]
                         break
-                        
+
                 elif any("rec_inh" in tag for tag in species_dict[s]):
                     if not any("rec_inh" in tag for tag in species_dict[par_species[par_species.index(s)-1]]):
                         continue
@@ -2744,6 +2745,7 @@ class Cat:
                                 randint(1, 100 - like) == 1
                                 and self.moons > 11
                                 and the_cat.moons > 11
+                                and self.age == the_cat.age
                             ):
                                 romantic_love = randint(15, 30)
                                 comfortable = int(comfortable * 1.3)
@@ -2763,6 +2765,7 @@ class Cat:
                                 randint(1, 100 - like) == 1
                                 and self.moons > 11
                                 and the_cat.moons > 11
+                                and self.age == the_cat.age
                             ):
                                 romantic_love = randint(15, 30)
                                 comfortable = int(comfortable * 1.3)
