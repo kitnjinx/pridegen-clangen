@@ -2647,17 +2647,12 @@ def generate_sprite(
         n = (list(game.species["species"]).index(cat.species)) + 1 #add 1 because people don't count from 0 smh
 
         if cat.pelt.name not in ["Tortie", "Calico"]:
-            new_sprite.blit(
-                sprites.sprites[
-                    cat.pelt.get_sprites_name() + f'{n}_' + cat.pelt.colour + cat_sprite],
-                (0, 0),
-            )
+            applyColoredPiece(cat, scars_hidden, cat_sprite, n, new_sprite, cat.pelt.get_sprites_name(),
+                              cat.pelt.colour)
         else:
             # Base Coat
-            new_sprite.blit(
-                sprites.sprites[cat.pelt.tortiebase + f'{n}_' + cat.pelt.colour + cat_sprite],
-                (0, 0),
-            )
+            applyColoredPiece(cat, scars_hidden, cat_sprite, n, new_sprite, cat.pelt.tortiebase,
+                              cat.pelt.colour)
 
             # Create the patch image
             if cat.pelt.tortiepattern == "Single":
@@ -2665,14 +2660,7 @@ def generate_sprite(
             else:
                 tortie_pattern = cat.pelt.tortiepattern
 
-            patches = sprites.sprites[
-                tortie_pattern + f'{n}_' + cat.pelt.tortiecolour + cat_sprite
-                ].copy()
-            patches.blit(
-                sprites.sprites["tortiemask" + f'{n}_' + cat.pelt.pattern + cat_sprite],
-                (0, 0),
-                special_flags=pygame.BLEND_RGBA_MULT,
-            )
+            patches = createTortiePatches(cat, scars_hidden, cat_sprite, n, tortie_pattern)
 
             # Add patches onto cat.
             new_sprite.blit(patches, (0, 0))
@@ -2698,9 +2686,7 @@ def generate_sprite(
 
         # draw white patches
         if cat.pelt.white_patches is not None:
-            white_patches = sprites.sprites[
-                "white" + f'{n}_' + cat.pelt.white_patches + cat_sprite
-                ].copy()
+            white_patches = createWhitePatches(cat, scars_hidden, cat_sprite, n, cat.pelt.white_patches)
 
             # Apply tint to white patches.
             if (
@@ -2721,9 +2707,8 @@ def generate_sprite(
             new_sprite.blit(white_patches, (0, 0))
 
         # draw vit & points
-
         if cat.pelt.points:
-            points = sprites.sprites["white" + f'{n}_' + cat.pelt.points + cat_sprite].copy()
+            points = createWhitePatches(cat, scars_hidden, cat_sprite, n, cat.pelt.points)
             if (
                 cat.pelt.white_patches_tint != "none"
                 and cat.pelt.white_patches_tint
@@ -2742,7 +2727,7 @@ def generate_sprite(
 
         if cat.pelt.vitiligo:
             new_sprite.blit(
-                sprites.sprites["white" + f'{n}_' + cat.pelt.vitiligo + cat_sprite], (0, 0)
+                createWhitePatches(cat, scars_hidden, cat_sprite, n, cat.pelt.vitiligo), (0, 0)
             )
 
         # draw eyes & scars1
@@ -2755,14 +2740,8 @@ def generate_sprite(
 
         if not scars_hidden:
             for scar in cat.pelt.scars:
-                if scar in cat.pelt.scars1:
-                    new_sprite.blit(
-                        sprites.sprites["scars" + f'{n}_' + scar + cat_sprite], (0, 0)
-                    )
-                if scar in cat.pelt.scars3:
-                    new_sprite.blit(
-                        sprites.sprites["scars" + f'{n}_' + scar + cat_sprite], (0, 0)
-                    )
+                if not scar in cat.pelt.scars2:
+                    applyColoredPiece(cat, scars_hidden, cat_sprite, n, new_sprite, "scars", scar)
 
         # draw line art
         if game.settings["shaders"] and not dead:
@@ -2771,17 +2750,18 @@ def generate_sprite(
                 (0, 0),
                 special_flags=pygame.BLEND_RGB_MULT,
             )
-            new_sprite.blit(sprites.sprites["lighting" + f'{n}_' + cat_sprite], (0, 0))
+            applyColorlessPiece(cat, scars_hidden, cat_sprite, n, new_sprite, "lighting")
 
         if not dead:
-            new_sprite.blit(sprites.sprites["lines" + f'{n}_' + cat_sprite], (0, 0))
+            applyColorlessPiece(cat, scars_hidden, cat_sprite, n, new_sprite, "lines")
         elif cat.df:
-            new_sprite.blit(sprites.sprites["lineartdf" + f'{n}_' + cat_sprite], (0, 0))
+            applyColorlessPiece(cat, scars_hidden, cat_sprite, n, new_sprite, "lineartdf")
         elif dead:
-            new_sprite.blit(sprites.sprites["lineartdead" + f'{n}_' + cat_sprite], (0, 0))
+            applyColorlessPiece(cat, scars_hidden, cat_sprite, n, new_sprite, "lineartdead")
+
         # draw skin and scars2
         blendmode = pygame.BLEND_RGBA_MIN
-        new_sprite.blit(sprites.sprites["skin" + f'{n}_' + cat.pelt.skin + cat_sprite], (0, 0))
+        applyColoredPiece(cat, scars_hidden, cat_sprite, n, new_sprite, "skin", cat.pelt.skin)
 
         if not scars_hidden:
             for scar in cat.pelt.scars:
@@ -2804,6 +2784,8 @@ def generate_sprite(
                     sprites.sprites["acc_wild" + f'{n}_' + cat.pelt.accessory + cat_sprite],
                     (0, 0),
                 )
+            elif cat.pelt.accessory in cat.pelt.collars and not scars_hidden:
+                apply_collar(cat, cat_sprite, new_sprite, n)
             elif cat.pelt.accessory in cat.pelt.collars:
                 new_sprite.blit(
                     sprites.sprites["collars" + f'{n}_' + cat.pelt.accessory + cat_sprite], (0, 0)
@@ -2853,6 +2835,230 @@ def generate_sprite(
 
     return new_sprite
 
+def check_for_lines(cat, spritenum, poselist, scar):
+    for pose in poselist:
+        if spritenum == str(pose) and scar in cat.pelt.scars:
+            return True
+    return False
+
+def check_two_scars(cat, spritenum, poselist, scar1, scar2):
+    for pose in poselist:
+        if spritenum == str(pose) and scar1 in cat.pelt.scars and scar2 in cat.pelt.scars:
+            return True
+    return False
+
+def applyColorlessPiece(cat, scars_hidden, cat_sprite, n, new_sprite, sprite_piece):
+    if not scars_hidden and cat.pelt.scars != []:
+        if check_two_scars(cat, cat_sprite, [9], "NOEAR", "HALFTAIL"):
+            new_sprite.blit(sprites.sprites[f'meht{sprite_piece}' + f'{n}_' + cat_sprite], (0, 0))
+        elif check_two_scars(cat, cat_sprite, [9], "NORIGHTEAR", "HALFTAIL"):
+            new_sprite.blit(sprites.sprites[f'meht{sprite_piece}' + f'{n}_' + cat_sprite], (0, 0))
+        elif check_for_lines(cat, cat_sprite, [4, 5, 9, 10, 13, 15, 16, 18, 19],"NOEAR"):
+            new_sprite.blit(sprites.sprites[f'me{sprite_piece}' + f'{n}_' + cat_sprite], (0, 0))
+        elif check_for_lines(cat, cat_sprite, [5, 13], "NOLEFTEAR"):
+            new_sprite.blit(sprites.sprites[f'me{sprite_piece}' + f'{n}_' + cat_sprite], (0, 0))
+        elif check_for_lines(cat, cat_sprite, [4, 9, 10, 15, 16, 18, 19], "NORIGHTEAR"):
+            new_sprite.blit(sprites.sprites[f'me{sprite_piece}' + f'{n}_' + cat_sprite], (0, 0))
+        elif check_two_scars(cat, cat_sprite, [9], "RIGHTEAR", "HALFTAIL"):
+            new_sprite.blit(sprites.sprites[f'neht{sprite_piece}' + f'{n}_' + cat_sprite], (0, 0))
+        elif check_for_lines(cat, cat_sprite, [5], "LEFTEAR"):
+            new_sprite.blit(sprites.sprites[f'ne{sprite_piece}' + f'{n}_' + cat_sprite], (0, 0))
+        elif check_for_lines(cat, cat_sprite, [4, 9], "RIGHTEAR"):
+            new_sprite.blit(sprites.sprites[f'ne{sprite_piece}' + f'{n}_' + cat_sprite], (0, 0))
+        elif check_for_lines(cat, cat_sprite, [9, 12, 14], "HALFTAIL"):
+            new_sprite.blit(sprites.sprites[f'ht{sprite_piece}' + f'{n}_' + cat_sprite], (0, 0))
+        elif check_for_lines(cat, cat_sprite, [12, 14], "NOTAIL"):
+            new_sprite.blit(sprites.sprites[f'nt{sprite_piece}' + f'{n}_' + cat_sprite], (0, 0))
+        else:
+            new_sprite.blit(sprites.sprites[sprite_piece + f'{n}_' + cat_sprite], (0, 0))
+    else:
+        new_sprite.blit(sprites.sprites[sprite_piece + f'{n}_' + cat_sprite], (0, 0))
+
+def applyColoredPiece(cat, scars_hidden, cat_sprite, n, new_sprite, piece, colour):
+    if not scars_hidden and cat.pelt.scars != []:
+        if check_two_scars(cat, cat_sprite, [9], "NOEAR", "HALFTAIL"):
+            new_sprite.blit(
+                sprites.sprites[
+                    'meht' + piece + f'{n}_' + colour + cat_sprite],
+                (0, 0),)
+        elif check_two_scars(cat, cat_sprite, [9], "NORIGHTEAR", "HALFTAIL"):
+            new_sprite.blit(
+                sprites.sprites[
+                    'meht' + piece + f'{n}_' + colour + cat_sprite],
+                (0, 0),)
+        elif check_for_lines(cat, cat_sprite, [4, 5, 9, 10, 13, 15, 16, 18, 19],"NOEAR"):
+            new_sprite.blit(
+                sprites.sprites[
+                    'me' + piece + f'{n}_' + colour + cat_sprite],
+                (0, 0),)
+        elif check_for_lines(cat, cat_sprite,[5, 13], "NOLEFTEAR"):
+            new_sprite.blit(
+                sprites.sprites[
+                    'me' + piece + f'{n}_' + colour + cat_sprite],
+                (0, 0),)
+        elif check_for_lines(cat, cat_sprite, [4, 9, 10, 15, 16, 18, 19],"NORIGHTEAR"):
+            new_sprite.blit(
+                sprites.sprites[
+                    'me' + piece + f'{n}_' + colour + cat_sprite],
+                (0, 0),)
+        elif check_two_scars(cat, cat_sprite, [9], "RIGHTEAR", "HALFTAIL"):
+            new_sprite.blit(
+                sprites.sprites[
+                    'neht' + piece + f'{n}_' + colour + cat_sprite],
+                (0, 0),)
+        elif check_for_lines(cat, cat_sprite, [5], "LEFTEAR"):
+            new_sprite.blit(
+                sprites.sprites[
+                    'ne' + piece + f'{n}_' + colour + cat_sprite],
+                (0, 0),)
+        elif check_for_lines(cat, cat_sprite, [4, 9], "RIGHTEAR"):
+            new_sprite.blit(
+                sprites.sprites[
+                    'ne' + piece + f'{n}_' + colour + cat_sprite],
+                (0, 0),)
+        elif check_for_lines(cat, cat_sprite, [9, 12, 14], "HALFTAIL"):
+            new_sprite.blit(
+                sprites.sprites[
+                    'ht' + piece + f'{n}_' + colour + cat_sprite],
+                (0, 0),)
+        elif check_for_lines(cat, cat_sprite, [12, 14], "NOTAIL"):
+            new_sprite.blit(
+                sprites.sprites[
+                    'nt' + piece + f'{n}_' + colour + cat_sprite],
+                (0, 0),)
+        else:
+            new_sprite.blit(
+                sprites.sprites[
+                    piece + f'{n}_' + colour + cat_sprite],
+                (0, 0),)
+    else:
+        new_sprite.blit(
+            sprites.sprites[
+                piece + f'{n}_' + colour + cat_sprite],
+            (0, 0),)
+
+def createTortiePatches(cat, scars_hidden, cat_sprite, n, tortie_pattern):
+    if not scars_hidden and cat.pelt.scars != []:
+        if check_two_scars(cat, cat_sprite, [9], "NOEAR", "HALFTAIL"):
+            patches = sprites.sprites[
+                'meht' + tortie_pattern + f'{n}_' + cat.pelt.tortiecolour + cat_sprite].copy()
+            patches.blit(
+                sprites.sprites["mehttortiemask" + f'{n}_' + cat.pelt.pattern + cat_sprite],
+                (0, 0), special_flags=pygame.BLEND_RGBA_MULT,)
+        elif check_two_scars(cat, cat_sprite, [9], "NORIGHTEAR", "HALFTAIL"):
+            patches = sprites.sprites[
+                'meht' + tortie_pattern + f'{n}_' + cat.pelt.tortiecolour + cat_sprite].copy()
+            patches.blit(
+                sprites.sprites["mehttortiemask" + f'{n}_' + cat.pelt.pattern + cat_sprite],
+                (0, 0), special_flags=pygame.BLEND_RGBA_MULT,)
+        elif check_for_lines(cat, cat_sprite, [4, 5, 9, 10, 13, 15, 16, 18, 19], "NOEAR"):
+            patches = sprites.sprites[
+                'me' + tortie_pattern + f'{n}_' + cat.pelt.tortiecolour + cat_sprite].copy()
+            patches.blit(
+                sprites.sprites["metortiemask" + f'{n}_' + cat.pelt.pattern + cat_sprite],
+                (0, 0), special_flags=pygame.BLEND_RGBA_MULT,)
+        elif check_for_lines(cat, cat_sprite, [5, 13], "NOLEFTEAR"):
+            patches = sprites.sprites[
+                'me' + tortie_pattern + f'{n}_' + cat.pelt.tortiecolour + cat_sprite].copy()
+            patches.blit(
+                sprites.sprites["metortiemask" + f'{n}_' + cat.pelt.pattern + cat_sprite],
+                (0, 0), special_flags=pygame.BLEND_RGBA_MULT,)
+        elif check_for_lines(cat, cat_sprite, [4, 9, 10, 15, 16, 18, 19],"NORIGHTEAR"):
+            patches = sprites.sprites[
+                'me' + tortie_pattern + f'{n}_' + cat.pelt.tortiecolour + cat_sprite].copy()
+            patches.blit(
+                sprites.sprites["metortiemask" + f'{n}_' + cat.pelt.pattern + cat_sprite],
+                (0, 0), special_flags=pygame.BLEND_RGBA_MULT,)
+        elif check_two_scars(cat, cat_sprite, [9], "RIGHTEAR", "HALFTAIL"):
+            patches = sprites.sprites[
+                'neht' + tortie_pattern + f'{n}_' + cat.pelt.tortiecolour + cat_sprite].copy()
+            patches.blit(
+                sprites.sprites["mehttortiemask" + f'{n}_' + cat.pelt.pattern + cat_sprite],
+                (0, 0), special_flags=pygame.BLEND_RGBA_MULT,)
+        elif check_for_lines(cat, cat_sprite, [5], "LEFTEAR"):
+            patches = sprites.sprites[
+                'ne' + tortie_pattern + f'{n}_' + cat.pelt.tortiecolour + cat_sprite].copy()
+            patches.blit(
+                sprites.sprites["netortiemask" + f'{n}_' + cat.pelt.pattern + cat_sprite],
+                (0, 0), special_flags=pygame.BLEND_RGBA_MULT,)
+        elif check_for_lines(cat, cat_sprite, [4, 9], "RIGHTEAR"):
+            patches = sprites.sprites[
+                'ne' + tortie_pattern + f'{n}_' + cat.pelt.tortiecolour + cat_sprite].copy()
+            patches.blit(
+                sprites.sprites["netortiemask" + f'{n}_' + cat.pelt.pattern + cat_sprite],
+                (0, 0), special_flags=pygame.BLEND_RGBA_MULT,)
+        elif check_for_lines(cat, cat_sprite, [9, 12, 14], "HALFTAIL"):
+            patches = sprites.sprites[
+                'ht' + tortie_pattern + f'{n}_' + cat.pelt.tortiecolour + cat_sprite].copy()
+            patches.blit(
+                sprites.sprites["httortiemask" + f'{n}_' + cat.pelt.pattern + cat_sprite],
+                (0, 0), special_flags=pygame.BLEND_RGBA_MULT,)
+        elif check_for_lines(cat, cat_sprite, [12, 14], "NOTAIL"):
+            patches = sprites.sprites[
+                'nt' + tortie_pattern + f'{n}_' + cat.pelt.tortiecolour + cat_sprite].copy()
+            patches.blit(
+                sprites.sprites["nttortiemask" + f'{n}_' + cat.pelt.pattern + cat_sprite],
+                (0, 0), special_flags=pygame.BLEND_RGBA_MULT,)
+        else:
+            patches = sprites.sprites[
+                tortie_pattern + f'{n}_' + cat.pelt.tortiecolour + cat_sprite].copy()
+            patches.blit(
+                sprites.sprites["tortiemask" + f'{n}_' + cat.pelt.pattern + cat_sprite],
+                (0, 0), special_flags=pygame.BLEND_RGBA_MULT,)
+    else:
+        patches = sprites.sprites[
+            tortie_pattern + f'{n}_' + cat.pelt.tortiecolour + cat_sprite].copy()
+        patches.blit(
+            sprites.sprites["tortiemask" + f'{n}_' + cat.pelt.pattern + cat_sprite],
+            (0, 0), special_flags=pygame.BLEND_RGBA_MULT,)
+
+    return patches
+
+def createWhitePatches(cat, scars_hidden, cat_sprite, n, white_pattern):
+    if not scars_hidden and cat.pelt.scars != []:
+        if check_two_scars(cat, cat_sprite, [9], "NOEAR", "HALFTAIL"):
+            return sprites.sprites["mehtwhite" + f'{n}_' + white_pattern + cat_sprite].copy()
+        elif check_two_scars(cat, cat_sprite, [9], "NORIGHTEAR", "HALFTAIL"):
+            return sprites.sprites["mehtwhite" + f'{n}_' + white_pattern + cat_sprite].copy()
+        elif check_for_lines(cat, cat_sprite, [4, 5, 9, 10, 13, 15, 16, 18, 19],"NOEAR"):
+            return sprites.sprites["mewhite" + f'{n}_' + white_pattern + cat_sprite].copy()
+        elif check_for_lines(cat, cat_sprite, [5, 13], "NOLEFTEAR"):
+            return sprites.sprites["mewhite" + f'{n}_' + white_pattern + cat_sprite].copy()
+        elif check_for_lines(cat, cat_sprite, [4, 9, 10, 15, 16, 18, 19],"NORIGHTEAR"):
+            return sprites.sprites["mewhite" + f'{n}_' + white_pattern + cat_sprite].copy()
+        elif check_two_scars(cat, cat_sprite, [9], "RIGHTEAR", "HALFTAIL"):
+            return sprites.sprites["nehtwhite" + f'{n}_' + white_pattern + cat_sprite].copy()
+        elif check_for_lines(cat, cat_sprite, [5], "LEFTEAR"):
+            print("Debug Statement: newhite" + f'{n}_' + white_pattern + cat_sprite)
+            return sprites.sprites["newhite" + f'{n}_' + white_pattern + cat_sprite].copy()
+        elif check_for_lines(cat, cat_sprite, [4, 9], "RIGHTEAR"):
+            return sprites.sprites["newhite" + f'{n}_' + white_pattern + cat_sprite].copy()
+        elif check_for_lines(cat, cat_sprite, [9, 12, 14], "HALFTAIL"):
+            return sprites.sprites["htwhite" + f'{n}_' + white_pattern + cat_sprite].copy()
+        elif check_for_lines(cat, cat_sprite, [12, 14], "NOTAIL"):
+            return sprites.sprites["ntwhite" + f'{n}_' + white_pattern + cat_sprite].copy()
+        else:
+            return sprites.sprites["white" + f'{n}_' + white_pattern + cat_sprite].copy()
+    else:
+        return sprites.sprites["white" + f'{n}_' + white_pattern + cat_sprite].copy()
+
+def apply_collar(cat, cat_sprite, new_sprite, n):
+    if check_for_lines(cat, cat_sprite, [5, 18, 19], "NOEAR"):
+        new_sprite.blit(
+            sprites.sprites["mecollars" + f'{n}_' + cat.pelt.accessory + cat_sprite], (0, 0)
+        )
+    elif check_for_lines(cat, cat_sprite, [5], "NOLEFTEAR"):
+        new_sprite.blit(
+            sprites.sprites["mecollars" + f'{n}_' + cat.pelt.accessory + cat_sprite], (0, 0)
+        )
+    elif check_for_lines(cat, cat_sprite, [18, 19], "NORIGHTEAR"):
+        new_sprite.blit(
+            sprites.sprites["mecollars" + f'{n}_' + cat.pelt.accessory + cat_sprite], (0, 0)
+        )
+    else:
+        new_sprite.blit(
+            sprites.sprites["collars" + f'{n}_' + cat.pelt.accessory + cat_sprite], (0, 0)
+        )
 
 def apply_opacity(surface, opacity):
     for x in range(surface.get_width()):

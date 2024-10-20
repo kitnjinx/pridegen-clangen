@@ -151,7 +151,7 @@ if get_version_info().is_source_build:
 else:
     print("Running on PyInstaller build")
 
-print("ClanGen Version Name: ", VERSION_NAME)
+print("Version Name: ", VERSION_NAME)
 print("Running on commit " + get_version_info().version_number)
 
 # Load game
@@ -169,22 +169,6 @@ from scripts.utility import (
 from scripts.debug_menu import debugmode
 import pygame
 
-print("")
-print("Running on SPS Framework")
-print("    Version: " + get_version_info().sps_version)
-print("    Species detected: " + str(len(game.species["species"])))
-print("    Sprite folders detected: " + str(len(game.sprite_folders)))
-if len(game.species["ran_weights"]) == len(game.species["species"]):
-    print("    ran_weights amount: correct")
-else:
-    print("    ran_weights amount: incorrect")
-if len(game.species["in_weights"]) == len(game.species["species"]):
-    print("    in_weights amount: correct")
-else:
-    print("    in_weights amount: incorrect")
-print("Created by a.corn(afellowcorn)")
-print("Official documentation: https://docs.google.com/document/d/1ZwXM-e1TEsUr7tzTtXxek-AKO8e3gGARRiW6JeevShc")
-print("")
 
 # import all screens for initialization (Note - must be done after pygame_gui manager is created)
 from scripts.screens.all_screens import AllScreens
@@ -321,15 +305,15 @@ while 1:
         if event.type == pygame.QUIT:
             # Don't display if on the start screen or there is no clan.
             if (
-                game.switches["cur_screen"]
-                in [
-                    "start screen",
-                    "switch clan screen",
-                    "settings screen",
-                    "info screen",
-                    "make clan screen",
-                ]
-                or not game.clan
+                    game.switches["cur_screen"]
+                    in [
+                "start screen",
+                "switch clan screen",
+                "settings screen",
+                "info screen",
+                "make clan screen",
+            ]
+                    or not game.clan
             ):
                 quit(savesettings=False)
             else:

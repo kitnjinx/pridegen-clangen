@@ -1636,28 +1636,43 @@
           }
         ]
     },
-    {
-      "event_id": "gen_misc_any_apprentice1",
-      "location": ["any"],
-      "season": ["any"],
-      "weight": 20,
-      "event_text": "m_c sneaks out of camp with r_c.",
-      "m_c": {
-          "age": ["adolescent"]
-      },
-      "r_c": {
-        "age": ["adolescent"]
-      },
-      "relationships": [
-          {
-              "cats_to": ["m_c"],
-              "cats_from": ["r_c"],
-              "mutual": true,
-              "values": ["trust", "platonic"],
-              "amount": 10
-          }
-      ],
+  {
+    "event_id": "gen_misc_any_apprentice1",
+    "location": [
+      "any"
+    ],
+    "season": [
+      "any"
+    ],
+    "weight": 20,
+    "event_text": "m_c sneaks out of camp with r_c.",
+    "m_c": {
+      "age": [
+        "adolescent"
+      ]
     },
+    "r_c": {
+      "age": [
+        "adolescent"
+      ]
+    },
+    "relationships": [
+      {
+        "cats_to": [
+          "m_c"
+        ],
+        "cats_from": [
+          "r_c"
+        ],
+        "mutual": true,
+        "values": [
+          "trust",
+          "platonic"
+        ],
+        "amount": 10
+      }
+    ]
+  },
   {
     "event_id": "gen_misc_any_kitkit1",
     "location": ["any"],

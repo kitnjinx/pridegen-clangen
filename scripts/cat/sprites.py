@@ -138,10 +138,67 @@ class Sprites:
                 'shadersnewwhite', 'lightingnew',
                 'whitepatches', 'tortiepatchesmasks',
                 'fademask', 'fadestarclan', 'fadedarkforest',
-                'symbols'
+                'symbols',
+                'missingearslineart', 'missingearslineartdf', 'missingearslineartdead', 'missingearsskin',
+                'missingearstortiepatchesmasks', 'missingearswhitepatches', 'missingearslightingnew',
+                'missingearshalftaillineart', 'missingearshalftaillineartdf', 'missingearshalftaillineartdead',
+                'missingearshalftailskin', 'missingearshalftailtortiepatchesmasks', 'missingearshalftailwhitepatches',
+                'missingearshalftaillightingnew',
+                'notchedearslineart', 'notchedearslineartdf', 'notchedearslineartdead', 'notchedearsskin',
+                'notchedearstortiepatchesmasks', 'notchedearswhitepatches', 'notchedearslightingnew',
+                'notchedearshalftaillineart', 'notchedearshalftaillineartdf', 'notchedearshalftaillineartdead',
+                'notchedearshalftailskin', 'notchedearshalftailtortiepatchesmasks', 'notchedearshalftailwhitepatches',
+                'notchedearshalftaillightingnew',
+                'halftaillineart', 'halftaillineartdf', 'halftaillineartdead', 'halftailskin',
+                'halftailtortiepatchesmasks', 'halftailwhitepatches', 'halftaillightingnew',
+                'notaillineart', 'notaillineartdf', 'notaillineartdead', 'notailskin',
+                'notailtortiepatchesmasks', 'notailwhitepatches', 'notaillightingnew'
             ]:
                 if 'lineart' in x and game.config['fun']['april_fools']:
-                    self.spritesheet(f"sprites/{f}/aprilfools{x}.png", x)
+                    if 'missingearshalftail' in x:
+                        self.spritesheet(f"sprites/{f}/specialscars/missingearshalftail/aprilfools{x}.png", x)
+                    elif 'missingears' in x:
+                        self.spritesheet(f"sprites/{f}/specialscars/missingears/aprilfools{x}.png", x)
+                    elif 'notchedearshalftail' in x:
+                        self.spritesheet(f"sprites/{f}/specialscars/notchedearshalftail/aprilfools{x}.png", x)
+                    elif 'notchedears' in x:
+                        self.spritesheet(f"sprites/{f}/specialscars/notchedears/aprilfools{x}.png", x)
+                    elif 'halftail' in x:
+                        self.spritesheet(f"sprites/{f}/specialscars/halftail/aprilfools{x}.png", x)
+                    elif 'notail' in x:
+                        self.spritesheet(f"sprites/{f}/specialscars/notail/aprilfools{x}.png", x)
+                    else:
+                        self.spritesheet(f"sprites/{f}/aprilfools{x}.png", x)
+                elif 'symbols' in x:
+                    self.spritesheet(f"sprites/{x}.png", x)
+                elif 'missingearshalftail' in x:
+                    self.spritesheet(f"sprites/{f}/specialscars/missingearshalftail/{x}.png", x)
+                elif 'missingears' in x:
+                    self.spritesheet(f"sprites/{f}/specialscars/missingears/{x}.png", x)
+                elif 'notchedearshalftail' in x:
+                    self.spritesheet(f"sprites/{f}/specialscars/notchedearshalftail/{x}.png", x)
+                elif 'notchedears' in x:
+                    self.spritesheet(f"sprites/{f}/specialscars/notchedears/{x}.png", x)
+                elif 'halftail' in x:
+                    self.spritesheet(f"sprites/{f}/specialscars/halftail/{x}.png", x)
+                elif 'notail' in x:
+                    self.spritesheet(f"sprites/{f}/specialscars/notail/{x}.png", x)
+                elif 'colours' in x or ('scars' in x and not 'missing' in x):
+                    self.spritesheet(f"sprites/{f}/{x}.png", x)
+                    self.spritesheet(f"sprites/{f}/specialscars/missingears/missingears{x}.png",
+                                     'missingears' + x)
+                    self.spritesheet(f"sprites/{f}/specialscars/missingearshalftail/missingearshalftail{x}.png",
+                                     'missingearshalftail' + x)
+                    self.spritesheet(f"sprites/{f}/specialscars/notchedears/notchedears{x}.png",
+                                     'notchedears' + x)
+                    self.spritesheet(f"sprites/{f}/specialscars/notchedearshalftail/notchedearshalftail{x}.png",
+                                     'notchedearshalftail' + x)
+                    self.spritesheet(f"sprites/{f}/specialscars/halftail/halftail{x}.png", 'halftail' + x)
+                    self.spritesheet(f"sprites/{f}/specialscars/notail/notail{x}.png", 'notail' + x)
+                elif 'collar' in x:
+                    self.spritesheet(f"sprites/{f}/{x}.png", x)
+                    self.spritesheet(f"sprites/{f}/specialscars/missingears/missingears{x}.png",
+                                     'missingears' + x)
                 else:
                     self.spritesheet(f"sprites/{f}/{x}.png", x)
 
@@ -152,6 +209,60 @@ class Sprites:
 
             self.make_group('lineartdead', (0, 0), f'lineartdead{f}_')
             self.make_group('lineartdf', (0, 0), f'lineartdf{f}_')
+
+            self.make_missing_groups_simple('missingearslineart', f'melines{f}_', 3,
+                                            3, [4, 5, 9, 10, 13, 15, 16, 18, 19])
+            self.make_missing_groups_simple('missingearslineartdead', f'melineartdead{f}_',
+                                            3, 3, [4, 5, 9, 10, 13, 15, 16, 18, 19])
+            self.make_missing_groups_simple('missingearslineartdf', f'melineartdf{f}_', 3,
+                                            3, [4, 5, 9, 10, 13, 15, 16, 18, 19])
+            self.make_missing_groups_simple('missingearslightingnew', f'melighting{f}_', 3,
+                                            3, [4, 5, 9, 10, 13, 15, 16, 18, 19])
+
+            self.make_missing_groups_simple('missingearshalftaillineart', f'mehtlines{f}_',
+                                            1, 1, [9])
+            self.make_missing_groups_simple('missingearshalftaillineartdead', f'mehtlineartdead{f}_',
+                                            1, 1, [9])
+            self.make_missing_groups_simple('missingearshalftaillineartdf', f'mehtlineartdf{f}_',
+                                            1, 1, [9])
+            self.make_missing_groups_simple('missingearshalftaillightingnew', f'mehtlighting{f}_',
+                                            1, 1, [9])
+
+            self.make_missing_groups_simple('notchedearslineart', f'nelines{f}_', 1,
+                                            3, [4, 5, 9])
+            self.make_missing_groups_simple('notchedearslineartdead', f'nelineartdead{f}_',
+                                            1, 3, [4, 5, 9])
+            self.make_missing_groups_simple('notchedearslineartdf', f'nelineartdf{f}_', 1,
+                                            3, [4, 5, 9])
+            self.make_missing_groups_simple('notchedearslightingnew', f'nelighting{f}_', 1,
+                                            3, [4, 5, 9])
+
+            self.make_missing_groups_simple('notchedearshalftaillineart', f'nehtlines{f}_',
+                                            1, 1, [9])
+            self.make_missing_groups_simple('notchedearshalftaillineartdead', f'nehtlineartdead{f}_',
+                                            1, 1, [9])
+            self.make_missing_groups_simple('notchedearshalftaillineartdf', f'nehtlineartdf{f}_',
+                                            1, 1, [9])
+            self.make_missing_groups_simple('notchedearshalftaillightingnew', f'nehtlighting{f}_',
+                                            1, 1, [9])
+
+            self.make_missing_groups_simple('halftaillineart', f'htlines{f}_', 1,
+                                            3, [9, 12, 14])
+            self.make_missing_groups_simple('halftaillineartdead', f'htlineartdead{f}_',
+                                            1, 3, [9, 12, 14])
+            self.make_missing_groups_simple('halftaillineartdf', f'htlineartdf{f}_', 1,
+                                            3, [9, 12, 14])
+            self.make_missing_groups_simple('halftaillightingnew', f'htlighting{f}_', 1,
+                                            3, [9, 12, 14])
+
+            self.make_missing_groups_simple('notaillineart', f'ntlines{f}_', 1,
+                                            2, [12, 14])
+            self.make_missing_groups_simple('notaillineartdead', f'ntlineartdead{f}_',
+                                            1, 2, [12, 14])
+            self.make_missing_groups_simple('notaillineartdf', f'ntlineartdf{f}_', 1,
+                                            2, [12, 14])
+            self.make_missing_groups_simple('notaillightingnew', f'ntlighting{f}_', 1,
+                                            2, [12, 14])
 
             # Fading Fog
             for i in range(0, 3):
@@ -197,6 +308,18 @@ class Sprites:
             for row, patches in enumerate(white_patches):
                 for col, patch in enumerate(patches):
                     self.make_group('whitepatches', (col, row), f'white{f}_{patch}')
+                    self.make_missing_groups('missingearswhitepatches', f'mewhite{f}_{patch}',
+                                             3, row, 3, col, [4, 5, 9, 10, 13, 15, 16, 18, 19])
+                    self.make_missing_groups('missingearshalftailwhitepatches', f'mehtwhite{f}_{patch}',
+                                             1, row,  1, col,  [9])
+                    self.make_missing_groups('notchedearswhitepatches', f'newhite{f}_{patch}',
+                                             1, row, 3, col, [4, 5, 9])
+                    self.make_missing_groups('notchedearshalftailwhitepatches',
+                                             f'nehtwhite{f}_{patch}', 1, row, 1, col, [9])
+                    self.make_missing_groups('halftailwhitepatches', f'htwhite{f}_{patch}',
+                                             1, row, 3, col, [9, 12, 14])
+                    self.make_missing_groups('notailwhitepatches', f'ntwhite{f}_{patch}',
+                                             1, row, 2, col, [12, 14])
 
             # Define colors and categories
             color_categories = [
@@ -216,6 +339,20 @@ class Sprites:
                 for col, color in enumerate(colors):
                     for color_type in color_types:
                         self.make_group(color_type, (col, row), f'{color_type[:-7]}{f}_{color}')
+                        self.make_missing_groups('missingears' + color_type, f'me{color_type[:-7]}{f}_{color}',
+                                                 3, row, 3, col, [4, 5, 9, 10, 13, 15, 16, 18, 19])
+                        self.make_missing_groups('missingearshalftail' + color_type,
+                                                 f'meht{color_type[:-7]}{f}_{color}',
+                                                 1, row, 1, col, [9])
+                        self.make_missing_groups('notchedears' + color_type, f'ne{color_type[:-7]}{f}_{color}',
+                                                 1, row, 3, col, [4, 5, 9])
+                        self.make_missing_groups('notchedearshalftail' + color_type,
+                                                 f'neht{color_type[:-7]}{f}_{color}',
+                                                 1, row, 1, col, [9])
+                        self.make_missing_groups('halftail' + color_type, f'ht{color_type[:-7]}{f}_{color}',
+                                                 1, row, 3, col, [9, 12, 14])
+                        self.make_missing_groups('notail' + color_type, f'nt{color_type[:-7]}{f}_{color}',
+                                                 1, row, 2, col, [12, 14])
 
             # tortiepatchesmasks
             tortiepatchesmasks = [
@@ -230,6 +367,20 @@ class Sprites:
             for row, masks in enumerate(tortiepatchesmasks):
                 for col, mask in enumerate(masks):
                     self.make_group('tortiepatchesmasks', (col, row), f"tortiemask{f}_{mask}")
+                    self.make_missing_groups('missingearstortiepatchesmasks', f'metortiemask{f}_{mask}',
+                                             3, row, 3, col, [4, 5, 9, 10, 13, 15, 16, 18, 19])
+                    self.make_missing_groups('missingearshalftailtortiepatchesmasks',
+                                             f'mehttortiemask{f}_{mask}',
+                                             1, row, 1, col, [9])
+                    self.make_missing_groups('notchedearstortiepatchesmasks', f'netortiemask{f}_{mask}',
+                                             1, row, 3, col, [4, 5, 9])
+                    self.make_missing_groups('notchedearshalftailtortiepatchesmasks',
+                                             f'nehttortiemask{f}_{mask}',
+                                             1, row, 1, col, [9])
+                    self.make_missing_groups('halftailtortiepatchesmasks', f'httortiemask{f}_{mask}',
+                                             1, row, 3, col, [9, 12, 14])
+                    self.make_missing_groups('notailtortiepatchesmasks', f'nttortiemask{f}_{mask}',
+                                             1, row, 2, col, [12, 14])
 
             # Define skin colors 
             skin_colors = [
@@ -241,6 +392,19 @@ class Sprites:
             for row, colors in enumerate(skin_colors):
                 for col, color in enumerate(colors):
                     self.make_group('skin', (col, row), f"skin{f}_{color}")
+                    self.make_missing_groups('missingearsskin', 'meskin' + f + '_' + color, 3,
+                                             row, 3, col, [4, 5, 9, 10, 13, 15, 16, 18, 19])
+                    self.make_missing_groups('missingearshalftailskin', 'mehtskin' + f + '_' + color,
+                                             1, row, 1, col, [9])
+                    self.make_missing_groups('notchedearsskin', 'neskin' + f + '_' + color, 1,
+                                             row, 3, col, [4, 5, 9])
+                    self.make_missing_groups('notchedearshalftailskin', 'nehtskin' + f + '_' + color,
+                                             1, row, 1, col, [9])
+                    self.make_missing_groups('halftailskin', 'htskin' + f + '_' + color,
+                                             1, row, 3, col, [9, 12, 14])
+                    self.make_missing_groups('notailskin', 'ntskin' + f + '_' + color,
+                                             1, row, 2, col, [12, 14])
+
 
             self.load_scars(f)
         self.load_symbols()
@@ -270,6 +434,18 @@ class Sprites:
         for row, scars in enumerate(scars_data):
             for col, scar in enumerate(scars):
                 self.make_group('scars', (col, row), f'scars{f}_{scar}')
+                self.make_missing_groups('missingearsscars', f'mescars{f}_{scar}', 3,
+                                         row, 3, col, [4, 5, 9, 10, 13, 15, 16, 18, 19])
+                self.make_missing_groups('missingearshalftailscars', f'mehtscars{f}_{scar}',
+                                         1, row, 1, col, [9])
+                self.make_missing_groups('notchedearsscars', f'nescars{f}_{scar}', 1,
+                                         row, 3, col, [4, 5, 9])
+                self.make_missing_groups('notchedearshalftailscars', f'nehtscars{f}_{scar}',
+                                         1, row, 1, col, [9])
+                self.make_missing_groups('halftailscars', f'htscars{f}_{scar}',
+                                         1, row, 3, col, [9, 12, 14])
+                self.make_missing_groups('notailscars', f'ntscars{f}_{scar}',
+                                         1, row, 2, col, [12, 14])
 
         # missing parts
         for row, missing_parts in enumerate(missing_parts_data):
@@ -317,36 +493,62 @@ class Sprites:
         # medcatherbs
         for row, herbs in enumerate(medcatherbs_data):
             for col, herb in enumerate(herbs):
-                self.make_group('medcatherbs', (col, row), f'acc_herbs{herb}')
+                self.make_group('medcatherbs', (col, row), f'acc_herbs{f}_{herb}')
         #dryherbs
         for row, dry in enumerate(dryherbs_data):
             for col, dryherbs in enumerate(dry):
-                self.make_group('medcatherbs', (col, 3), f'acc_herbs{dryherbs}')     
-                self.make_group('medcatherbs', (col, row), f'acc_herbs{f}_{herb}')
+                self.make_group('medcatherbs', (col, 3), f'acc_herbs{f}_{dryherbs}')
         # wild
         for row, wilds in enumerate(wild_data):
             for col, wild in enumerate(wilds):
-                self.make_group('wild', (col, 0), f'acc_wild{wild}')
+                self.make_group('wild', (col, 0), f'acc_wild{f}_{wild}')
 
         # collars
         for row, collars in enumerate(collars_data):
             for col, collar in enumerate(collars):
                 self.make_group('collars', (col, row), f'collars{f}_{collar}')
+                self.make_missing_groups('missingearscollars', f'mecollars{f}_{collar}',
+                                         3, row, 1, col, [5, 18, 19])
 
         # bellcollars
         for row, bellcollars in enumerate(bellcollars_data):
             for col, bellcollar in enumerate(bellcollars):
                 self.make_group('bellcollars', (col, row), f'collars{f}_{bellcollar}')
+                self.make_missing_groups('missingearsbellcollars', f'mecollars{f}_{bellcollar}',
+                                         1, row, 1, col, [5, 18, 19])
 
         # bowcollars
         for row, bowcollars in enumerate(bowcollars_data):
             for col, bowcollar in enumerate(bowcollars):
                 self.make_group('bowcollars', (col, row), f'collars{f}_{bowcollar}')
+                self.make_missing_groups('missingearsbowcollars', f'mecollars{f}_{bowcollar}',
+                                         3, row, 1, col, [5, 18, 19])
 
         # nyloncollars
         for row, nyloncollars in enumerate(nyloncollars_data):
             for col, nyloncollar in enumerate(nyloncollars):
                 self.make_group('nyloncollars', (col, row), f'collars{f}_{nyloncollar}')
+                self.make_missing_groups('missingearsnyloncollars', f'mecollars{f}_{nyloncollar}',
+                                         3, row, 1, col, [5, 18, 19])
+
+    def make_missing_groups_simple(self, spritesheet, name, numrow, numcol, poses):
+        listpos = 0
+        for row in range(numrow):
+            for col in range(numcol):
+                self.make_group(spritesheet, (col, row), f'{name}{poses[listpos]}',
+                                1, 1, True)
+                listpos += 1
+
+    def make_missing_groups(self, spritesheet, name, numrow, yoffset, numcol, xoffset, poses):
+        group_x_ofs = xoffset * numcol
+        group_y_ofs = yoffset * numrow
+
+        listpos = 0
+        for row in range(numrow):
+            for col in range(numcol):
+                self.make_group(spritesheet, (group_x_ofs + col, group_y_ofs + row),
+                                f'{name}{poses[listpos]}', 1, 1, True)
+                listpos += 1
 
     def load_symbols(self):
         """

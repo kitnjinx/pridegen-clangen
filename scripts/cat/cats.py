@@ -8,7 +8,7 @@ import bisect
 import itertools
 import os.path
 import sys
-from random import choice, randint, sample, random, getrandbits, randrange
+from random import choice, randint, sample, random, getrandbits, randrange, choices
 from typing import Dict, List, Any
 
 import ujson  # type: ignore
@@ -321,7 +321,13 @@ class Cat:
 
         # sex!?!??!?!?!??!?!?!?!??
         if self.gender is None:
-            self.gender = choice(["female", "male"])
+            if self.species in ['lion']:
+                self.gender = "male"
+            elif self.species in ['lioness']:
+                self.gender = "female"
+            else:
+                print("ERROR: Gender not working right")
+                self.gender = choice(["female", "male"])
         self.g_tag = self.gender_tags[self.gender]
 
         """if self.genderalign == "":
@@ -464,6 +470,14 @@ class Cat:
             else:
                 self.genderalign = "nonbinary"
                 self.pronouns = [self.default_pronouns[0].copy()]
+
+        # Assign species based on sex
+        if self.gender == "male":
+            self.species = "lion"
+        elif self.gender == "female":
+            self.species = "lioness"
+        else:
+            print("Error Generating: Species not working")
 
         # APPEARANCE
         self.pelt = Pelt.generate_new_pelt(
@@ -660,7 +674,7 @@ class Cat:
                 fetched_cat.update_mentor()
         self.update_mentor()
 
-        # if game.clan and game.clan.game_mode != 'classic' and not (self.outside or self.exiled) and body is not None:
+        # if game.clan and not (self.outside or self.exiled) and body is not None:
         if game.clan and not self.outside and not self.exiled:
             self.grief(body)
 
