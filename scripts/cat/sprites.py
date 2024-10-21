@@ -508,28 +508,28 @@ class Sprites:
             for col, collar in enumerate(collars):
                 self.make_group('collars', (col, row), f'collars{f}_{collar}')
                 self.make_missing_groups('missingearscollars', f'mecollars{f}_{collar}',
-                                         3, row, 1, col, [5, 18, 19])
+                                         1, row, 3, col, [5, 18, 19])
 
         # bellcollars
         for row, bellcollars in enumerate(bellcollars_data):
             for col, bellcollar in enumerate(bellcollars):
                 self.make_group('bellcollars', (col, row), f'collars{f}_{bellcollar}')
                 self.make_missing_groups('missingearsbellcollars', f'mecollars{f}_{bellcollar}',
-                                         1, row, 1, col, [5, 18, 19])
+                                         1, row, 3, col, [5, 18, 19])
 
         # bowcollars
         for row, bowcollars in enumerate(bowcollars_data):
             for col, bowcollar in enumerate(bowcollars):
                 self.make_group('bowcollars', (col, row), f'collars{f}_{bowcollar}')
                 self.make_missing_groups('missingearsbowcollars', f'mecollars{f}_{bowcollar}',
-                                         3, row, 1, col, [5, 18, 19])
+                                         1, row, 3, col, [5, 18, 19])
 
         # nyloncollars
         for row, nyloncollars in enumerate(nyloncollars_data):
             for col, nyloncollar in enumerate(nyloncollars):
                 self.make_group('nyloncollars', (col, row), f'collars{f}_{nyloncollar}')
                 self.make_missing_groups('missingearsnyloncollars', f'mecollars{f}_{nyloncollar}',
-                                         3, row, 1, col, [5, 18, 19])
+                                         1, row, 3, col, [5, 18, 19])
 
     def make_missing_groups_simple(self, spritesheet, name, numrow, numcol, poses):
         listpos = 0
