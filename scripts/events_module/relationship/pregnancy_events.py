@@ -754,7 +754,7 @@ class Pregnancy_Events:
         par2species = None
 
         ##### SELECT BACKSTORY #####
-        if cat and cat.gender == "female":
+        if cat and "pregnant" in cat.injuries:
             backstory = choice(["halfclan1", "outsider_roots1"])
         elif cat:
             backstory = choice(["halfclan2", "outsider_roots2"])
@@ -806,7 +806,6 @@ class Pregnancy_Events:
 
         #### GENERATE THE KITS ######
         for kit in range(kits_amount):
-            kit = None
             if not cat:
                 # No parents provided, give a blood parent - this is an adoption.
                 if not blood_parent:
